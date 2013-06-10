@@ -53,9 +53,9 @@ $page_id = get_the_ID();
 	  width:50%;
 	  height:100%;
 	  float:left;
-	  background-image: url(http://my-yacht-charter.com/wp-content/uploads/2013/04/J3I2621_051-1024x684.jpg);
+	  background-image: url(http://my-yacht-charter.com/wp-content/uploads/2013/06/motor-test.jpg);
     background-size: cover;
-    background-position: top center;
+    background-position: bottom center;
 	  overflow:hidden;
 	  position:absolute;
 	}
