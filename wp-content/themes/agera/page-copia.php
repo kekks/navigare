@@ -53,7 +53,7 @@ $page_id = get_the_ID();
 	  width:50%;
 	  height:100%;
 	  float:left;
-	  background-image: url(http://my-yacht-charter.com/wp-content/uploads/2013/06/motor-test.jpg);
+	  background-image: url(http://my-yacht-charter.com/wp-content/uploads/2013/06/17.jpg);
     background-size: cover;
     background-position: bottom center;
 	  overflow:hidden;
