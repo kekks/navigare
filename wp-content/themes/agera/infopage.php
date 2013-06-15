@@ -39,6 +39,7 @@ else
 	.infopage h6 a{
     color:#2e3971;
     line-height:25px;
+    font-size:bold;
   }
 
   .r-content {
