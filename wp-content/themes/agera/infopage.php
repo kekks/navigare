@@ -39,7 +39,7 @@ else
 	.infopage h6 a{
     color:#2e3971;
     line-height:25px;
-    font-size:bold;
+    font-weight:bold;
   }
 
   .r-content {
@@ -49,7 +49,7 @@ else
   }
 
   .dom {
-  padding: 80px 0 50px 0;
+  padding: 32px 0 50px 0;
   color: 
   black;
   }
@@ -66,7 +66,6 @@ else
 		<div class="page-content infopage">
 
     		  <div class="l-menu">
-    		    <h2>INFO PAGE</h2>
     		    <h6><a href="#1">CHARTER TERMS</a></h6>
     		    <h6><a href="#2">A.P.A.</a></h6>
     		    <h6><a href="#3">PREFERENCE SHEET</a></h6>
@@ -78,6 +77,7 @@ else
     		    <h6><a href="#9">INSURANCE</a></h6>
     		    <h6><a href="#10">GRATUITIES</a></h6>
     		    <h6><a href="#11">SMOKING</a></h6>
+    		    <h6><a href="#12">ASK</a></h6>
     		  </div>
 
     		  <div class="r-content">
@@ -144,6 +144,12 @@ else
 
     		    <div class="dom" id="11">
     		      <h4>SMOKING ON BOARD THE YACHT</h4>
+    		      <p>Smoking is not permitted inside most yachts. However please consult us for verification, as this policy may vary on certain yachts. For safety reasons, smoking in cabins and staterooms is prohibited on all yachts. 
+              </p>
+    		    </div>
+    		    
+    		    <div class="dom" id="12">
+    		      <h4></h4>
     		      <p>Smoking is not permitted inside most yachts. However please consult us for verification, as this policy may vary on certain yachts. For safety reasons, smoking in cabins and staterooms is prohibited on all yachts. 
               </p>
     		    </div>
