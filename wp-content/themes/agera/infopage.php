@@ -66,6 +66,7 @@ else
 		<div class="page-content infopage">
 
     		  <div class="l-menu">
+    		    <div class="men">
     		    <h6><a href="#1">CHARTER TERMS</a></h6>
     		    <h6><a href="#2">A.P.A.</a></h6>
     		    <h6><a href="#3">PREFERENCE SHEET</a></h6>
@@ -78,6 +79,7 @@ else
     		    <h6><a href="#10">GRATUITIES</a></h6>
     		    <h6><a href="#11">SMOKING</a></h6>
     		    <h6><a href="#11">MORE INFO</a></h6>
+    		  </div>
     		  </div>
 
     		  <div class="r-content">
