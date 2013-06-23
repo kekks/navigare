@@ -58,6 +58,16 @@ else
   font-size: 18px;
   color:#ec9b00 !important;
   }
+  .mpc-button {
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 14px;
+  display: inline-block;
+  margin: 0px 10px 10px 0px;
+  background: #2e3971!important;
+  color: #FFFFFF!important;
+  }
 	
 </style>
 
@@ -152,19 +162,8 @@ else
     		    
     		    <div class="dom" id="12">
     		    <h4>PLEASE CONTACT US FOR ANY ADDITIONAL INFO</h4>
-    		    <form action="http://my-yacht-charter.com/portfolio/info" id="contact_form" method="post">
-            <div class="comment-from-who">
-            <p class="mpc-name"><input style="border:1px solid #ff8e24;" type="text" name="author_cf" id="author_cf" value="Name *" class="requiredField comments_form author_cf" tabindex="1" onfocus="if(this.value=='Name *') this.value='';" onblur="if(this.value=='')this.value='Name *';"></p>
-            <p class="email"><input style="border:1px solid #ff8e24;" type="text" name="email_cf" id="email_cf" value="Email *" class="requiredField comments_form email email_cf" tabindex="2" onfocus="if(this.value=='Email *') this.value='';" onblur="if(this.value=='')this.value='Email *';"></p>
-            </div>
-            <div class="comments_form_text">
-            <p class="mess"><textarea style="border:1px solid #ff8e24;width:90%;"name="message_cf" id="message_cf" rows="1" cols="1" class="requiredField comments_form text_f message_cf" tabindex="3" onfocus="if(this.value=='Message *') this.value='';" onblur="if(this.value=='')this.value='Message *';">Message *</textarea></p>
-            <p class="form_btns"><input name="submit" type="submit" id="submit" tabindex="6" value="Send" class="read_more send"><input type="hidden" name="submitted" id="submitted" value="true"></p>
-            <p class="checking"><input type="text" name="checking" id="checking" class="checking" value="" style="display: none;"></p>
-            </div>
-            <div class="clear"></div>
-            </form>
-            </div>
+    		    <p><a class="mpc-button mpc-button-1" href="mailto:info@my-yacht-charter.com"> Contact </a></p>
+    		    </div>
 
     		  </div>
 
