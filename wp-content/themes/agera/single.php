@@ -181,13 +181,9 @@ if(isset($post_meta['weeklyrate'][0]))
 				<div class="meta-content">
 <?php if($page_data['visualizzascheda'] == '') { ?>		
 	
-					<h5>Boat info:</h5>
+					<!-- <h5>Boat info:</h5> -->
 					<ul>
-						<!-- 
-<li><em>Date:</em> <?php echo get_the_date('M j, Y'); ?></li>
-						<li><em>Author:</em> <?php echo the_author_posts_link(); ?></li>
-						
- -->
+
 						<?php if($page_data['boatlenght'] != '') { ?>
 							<li><em>Length:</em> <?php echo $page_data['boatlenght']; ?></li>
 						<?php } ?>
@@ -263,7 +259,7 @@ if(isset($post_meta['weeklyrate'][0]))
 					</ul>
 	<?php } ?>
 	<?php if($page_data['visualizzasocial'] == '') { ?>
-					<h5>Share:</h5>
+          <!-- <h5>Share:</h5> -->
 <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style addthis_16x16_style">
 <a class="addthis_button_facebook"></a>
