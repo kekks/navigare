@@ -23,7 +23,7 @@ else
 	#content {
 		background: url(<?php echo $page_data['background']; ?>);
 		background-size: cover;
-    background-position: bottom center;
+    background-position: top right;
 	}
 </style>
 
