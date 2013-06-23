@@ -22,6 +22,8 @@ else
 <style>
 	#content {
 		background: url(<?php echo $page_data['background']; ?>);
+		background-size: cover;
+    background-position: bottom center;
 	}
 </style>
 
