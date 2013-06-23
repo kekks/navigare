@@ -118,7 +118,7 @@ $page_id = get_the_ID();
 
 <div class="wrapper">
   <div class="motor">
-    <a href="http://my-yacht-charter.com/motorboat-2/">
+    <a href="http://my-yacht-charter.com/charter-motor-yacht">
       <div class="divbl"></div>
       <div class="testom">
       <img src="http://my-yacht-charter.com/wp-content/uploads/2013/06/testm.png">
@@ -128,7 +128,7 @@ $page_id = get_the_ID();
   </div>
 
   <div class="sail">
-    <a href="http://my-yacht-charter.com/sailboat/">
+    <a href="http://my-yacht-charter.com/charter-sail-yacht">
       <div class="divbl"></div>
       <div class="divbl"></div>
       <div class="testos">
