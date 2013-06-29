@@ -191,8 +191,9 @@ if(isset($post_meta['weeklyrate'][0]))
 			<aside class="post-meta">
 				<div class="meta-content">
 <?php if($page_data['visualizzascheda'] == '') { ?>		
-	
-					<!-- <h5>Boat info:</h5> -->
+<?php if($post_type == 'portfolio') { ?>	
+          <h5>Boat info:</h5>
+<?php } ?>          
 					<ul>
 
 						<?php if($page_data['boatlenght'] != '') { ?>
@@ -268,12 +269,13 @@ if(isset($post_meta['weeklyrate'][0]))
  -->
 
 					</ul>
-					
-<p><a class="mpc-button mpc-button-1" href="mailto:info@my-yacht-charter.com?Subject=Info about <?php the_title(); ?>" style="color:white !important;">Ask for more info</a></p>
+<?php if($post_type == 'portfolio') { ?>					
+<p><a class="mpc-button mpc-button-1" href="mailto:charter@my-yacht-charter.com?Subject=Info about <?php the_title(); ?>" style="color:white !important;margin-top:10px;">Ask for availability</a></p>
+<?php } ?>
 					
 	<?php } ?>
-	<?php if($page_data['visualizzasocial'] == '') { ?>
-          <!-- <h5>Share:</h5> -->
+<?php if($page_data['visualizzasocial'] == '') { ?>
+          <h5>Share:</h5>
 <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style addthis_16x16_style">
 <a class="addthis_button_facebook"></a>
