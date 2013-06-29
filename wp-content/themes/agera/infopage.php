@@ -162,7 +162,7 @@ else
     		    
     		    <div class="dom" id="12">
     		    <h4>PLEASE CONTACT US FOR ANY ADDITIONAL INFO</h4>
-    		    <p><a class="mpc-button mpc-button-1" href="mailto:info@my-yacht-charter.com"> Contact </a></p>
+    		    <p><a class="mpc-button mpc-button-1" href="mailto:info@my-yacht-charter.com">Contact</a></p>
     		    </div>
 
     		  </div>

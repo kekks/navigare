@@ -12,7 +12,18 @@
 	$post_type = $post->post_type;
 		
 ?>
-
+<style>
+  .mpc-button {
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 14px;
+  display: inline-block;
+  margin: 0px 10px 10px 0px;
+  background: #2e3971!important;
+  color: #FFFFFF!important;
+  }
+</style>
 
 <div id="content" role="main">
 <!-- Display posts -->
@@ -257,6 +268,9 @@ if(isset($post_meta['weeklyrate'][0]))
  -->
 
 					</ul>
+					
+<p><a class="mpc-button mpc-button-1" href="mailto:info@my-yacht-charter.com?Subject=Info about Yachts <?php the_title(); ?>" style="color:white !important;">Ask for availability</a></p>
+					
 	<?php } ?>
 	<?php if($page_data['visualizzasocial'] == '') { ?>
           <!-- <h5>Share:</h5> -->
