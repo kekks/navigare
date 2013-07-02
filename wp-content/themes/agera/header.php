@@ -19,6 +19,12 @@
 		
 		
 	</head>
+	
+	<style>
+  .logo{width:661px;height:90px;}
+  
+  .logo img{margin:19px 5px;float:left;}
+	</style>
 
 	<body <?php body_class(); ?>>
 		
@@ -33,8 +39,10 @@
 						echo '</ul>';
 					} ?> <!-- end menu --> 
 	
-	     			 <div id="slogan">
-	    	  			<?php agera_add_logo(); ?>
-	  				</div> <!-- end slogan --> 
+	     			 <div class="logo">
+	     			   <a href="http://my-yacht-charter.com"><img src="http://my-yacht-charter.com/wp-content/uploads/2013/04/Logo.png"></a>
+	     			   <a href="http://my-yacht-charter.com/charter-motor-yacht/"><img src="http://my-yacht-charter.com/wp-content/uploads/2013/07/m1.png"></a>
+	     			   <a href="http://my-yacht-charter.com/charter-sail-yacht/"><img src="http://my-yacht-charter.com/wp-content/uploads/2013/07/s1.png"></a>
+             </div> <!-- end slogan --> 
 	   			</div> <!-- end header -->
 			</div> <!-- end header-container -->
