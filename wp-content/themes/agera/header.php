@@ -20,7 +20,8 @@
 		
 	</head>
 	<style>
-	#slogan h1 a{width:260px !important;font-size:17px !important;}
+	#slogan h1 a{width:260px !important;}
+	#slogan h1 {font-size:17px !important;}
 	</style>
 
 	<body <?php body_class(); ?>>
