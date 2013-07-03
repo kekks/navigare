@@ -1140,6 +1140,8 @@ div.portfolio.no-flip .face.back { opacity: 0; cursor: pointer; color: #FFFFFF; 
 	width: 90%;
 	margin-left: 6%;
 	overflow: hidden;
+	font-weight: lighter !important;
+	ont-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
 
 .mpc-card .face.back a.view-details {
