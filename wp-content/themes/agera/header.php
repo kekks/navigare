@@ -19,6 +19,9 @@
 		
 		
 	</head>
+	<style>
+	#slogan h1 a{width:260px !important;}
+	</style>
 
 	<body <?php body_class(); ?>>
 		
@@ -35,6 +38,9 @@
 	
 	     			 <div id="slogan">
 	    	  			<?php agera_add_logo(); ?>
+	  			    	<div style="float:left;"><a href="http://my-yacht-charter.com/charter-motor-yacht/"><img src="http://my-yacht-charter.com/wp-content/uploads/2013/07/m1.png"></a></div>
+	  			    	<div style="float:left;"><a href="http://my-yacht-charter.com/charter-sail-yacht/"><img src="http://my-yacht-charter.com/wp-content/uploads/2013/07/s1.png"></a></div>  
 	  				</div> <!-- end slogan --> 
+	  			
 	   			</div> <!-- end header -->
 			</div> <!-- end header-container -->
