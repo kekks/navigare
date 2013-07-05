@@ -34,6 +34,9 @@ else
 	#content {
 		background: url(<?php echo $mp_option['agera_archive']; ?>) no-repeat;
 	}
+	
+	h2 {color:#2e3971 !important}
+	h2:hover {color:#ff8e24 !important}
 </style>
 
 <div id="content" role="main">
