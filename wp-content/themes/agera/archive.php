@@ -35,7 +35,7 @@ else
 		background: url(<?php echo $mp_option['agera_archive']; ?>) no-repeat;
 	}
 	
-	.tabs ul li a, h1, h2, h3, h4, h5, .mpc-page-title a {color:#2c396e !important;}
+	.mpc-page-title a {color:#2c396e !important;}
 
 </style>
 
