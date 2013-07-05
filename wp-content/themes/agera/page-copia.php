@@ -21,7 +21,7 @@ $page_id = get_the_ID();
 <style>
 	.wrapper {
 		width:100%;
-		height:100%;
+		height:89%;
 		background:white;
 	}
 	
@@ -51,7 +51,7 @@ $page_id = get_the_ID();
 
 	.motor {
 	  width:50%;
-	  height:100%;
+	  height:95%;
 	  float:left;
 	  background-image: url(http://my-yacht-charter.com/wp-content/uploads/2013/06/17.jpg);
     background-size: cover;
@@ -114,6 +114,19 @@ $page_id = get_the_ID();
     background-position: bottom center;
     overflow:hidden;
   	}
+  	
+  .legal{
+    position:absolute;
+    margin-bottom:0;
+    color:white;
+    height:15px;
+    width:100%;
+    text-align:center;
+    font-size:10px;
+    bottom:0;
+    z-index:3000;
+    opacity:0.7;
+  }
 </style>
 
 <div class="wrapper">
@@ -137,8 +150,15 @@ $page_id = get_the_ID();
       </div>
     </a>
   </div>
+  
+  <div style="clear:both"></div>
+  
+  <div class="legal">
+   <p>Navigare Y.W. - Via Napoli, 108 - 09124 Cagliari (CA) Italy - tel. +39 070 6402523 - fax. +39 178 2203243 - cell. +39 3351436586 - PI 03173110929 <p>
+  </div>
 
 </div>
-<?php get_footer(); ?>
+
+<!-- <?php get_footer(); ?> -->
 </body>
 </html>
