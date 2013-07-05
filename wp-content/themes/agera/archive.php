@@ -34,9 +34,6 @@ else
 	#content {
 		background: url(<?php echo $mp_option['agera_archive']; ?>) no-repeat;
 	}
-	
-	.mpc-page-title a {color:#2c396e !important;}
-
 </style>
 
 <div id="content" role="main">
