@@ -39,7 +39,7 @@
 	
 	     			 <div id="slogan">
 	    	  			<?php agera_add_logo(); ?>
-	  			    	<div style="float:left;"><a href="http://my-yacht-charter.com/charter-motor-yacht/"><img src="http://my-yacht-charter.com/wp-content/uploads/2013/07/m.png"></a></div>
+	  			    	<div style="float:left;"><a href="http://my-yacht-charter.com/charter-motor-yacht/"><img src="http://my-yacht-charter.com/wp-content/uploads/2013/07/mm.png"></a></div>
 	  			    	<div style="float:left;"><a href="http://my-yacht-charter.com/charter-sail-yacht/"><img src="http://my-yacht-charter.com/wp-content/uploads/2013/07/s.png"></a></div>  
 	  				</div> <!-- end slogan --> 
 	  			
