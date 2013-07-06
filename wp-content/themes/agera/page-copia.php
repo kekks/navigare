@@ -123,7 +123,7 @@ $page_id = get_the_ID();
     width:100%;
     text-align:center;
     font-size:10px;
-    bottom:0;
+    bottom:15px;
     z-index:3000;
     opacity:0.7;
   }
