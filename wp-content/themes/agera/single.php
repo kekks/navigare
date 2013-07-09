@@ -270,7 +270,7 @@ if(isset($post_meta['weeklyrate'][0]))
 
 					</ul>
 <?php if($post_type == 'portfolio') { ?>					
-<p><a class="mpc-button mpc-button-1" href="mailto:charter@my-yacht-charter.com?Subject=Info about <?php the_title(); ?>" style="color:white !important;margin-top:10px;">Ask for availability</a></p>
+<p><a class="mpc-button mpc-button-1" href="mailto:info@my-yacht-charter.com?Subject=Info about <?php the_title(); ?>" style="color:white !important;margin-top:10px;">Ask for availability</a></p>
 <?php } ?>
 					
 	<?php } ?>
