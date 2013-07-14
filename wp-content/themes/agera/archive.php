@@ -33,7 +33,7 @@ else
 <style>
 	#content {
 		background: url(<?php echo $mp_option['agera_archive']; ?>) no-repeat;
-		background-size: cover;
+		background-size: cover !important;
 	}
 </style>
 
