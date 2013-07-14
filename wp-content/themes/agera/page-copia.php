@@ -47,7 +47,7 @@ $page_id = get_the_ID();
     font-size:30px;
     line-height:45px;
     font-weight:lighter;
-}
+  }
 
 	.motor {
 	  width:50%;
@@ -113,7 +113,7 @@ $page_id = get_the_ID();
 	  background-size: cover;
     background-position: bottom center;
     overflow:hidden;
-  	}
+  }
   	
   .legal{
     position:absolute;
@@ -164,6 +164,5 @@ $page_id = get_the_ID();
 
 </div>
 
-<!-- <?php get_footer(); ?> -->
 </body>
 </html>
