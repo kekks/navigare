@@ -34,6 +34,7 @@ else
 	#content {
 		background: url(<?php echo $mp_option['agera_archive']; ?>) no-repeat;
 		background-size: cover !important;
+    background-position: bottom center;
 	}
 </style>
 
