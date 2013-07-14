@@ -127,6 +127,11 @@ $page_id = get_the_ID();
     z-index:3000;
     opacity:0.7;
   }
+  
+  .legal a{
+    text-decoration:none !important;
+    color:white !important;
+  }
 </style>
 
 <div class="wrapper">
