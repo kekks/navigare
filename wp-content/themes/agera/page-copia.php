@@ -67,11 +67,13 @@ $page_id = get_the_ID();
 	  z-index:10;
 	  position:absolute;
 	  opacity:0;
+	  background:rbga(0,0,0,0.0);
 	}
 	
 	
 	.sail:hover .divbl{
 	  opacity:0.5;
+	  background:rbga(0,0,0,0.5);
 	  cursor:pointer;
 	  -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
@@ -89,6 +91,7 @@ $page_id = get_the_ID();
 	
 	.motor:hover .divbl{
 	  opacity:0.7;
+	  background:rbga(0,0,0,0.7);
 	  cursor:pointer;
 	  -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
