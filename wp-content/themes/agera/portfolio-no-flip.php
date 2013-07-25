@@ -28,7 +28,7 @@ else
 if( isset($post_values['item_number'][0]) )
 	$page_data['item_number'] = $post_values['item_number'][0];
 else
-	$page_data['item_number'] = '30';
+	$page_data['item_number'] = '60';
 
 ?>
 <div id="content" class="portfolio-cont" role="main">
