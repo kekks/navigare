@@ -1457,7 +1457,7 @@ div.page-404 article.blog-post  {
 /* -----------------CUSTOM------------------------ */
 
 .incap_page-tooltip{
-  display:none !important;
+  visibility:hidden !important;
 }
 
 /* 
