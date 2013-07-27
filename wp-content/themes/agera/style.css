@@ -1456,6 +1456,10 @@ div.page-404 article.blog-post  {
 
 /* -----------------CUSTOM------------------------ */
 
+.incap_page-tooltip{
+  display:none !important;
+}
+
 /* 
 
 .post-image {height:300px; overflow:hidden;}
