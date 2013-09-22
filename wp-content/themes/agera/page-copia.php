@@ -17,6 +17,7 @@ $page_id = get_the_ID();
 //  $page_data['background'] = '';
 // 
 ?>
+<a href="https://plus.google.com/106443940266608905581" rel="publisher">Google+</a>
 
 <style>
 	.wrapper {
