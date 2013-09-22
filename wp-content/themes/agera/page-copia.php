@@ -17,7 +17,6 @@ $page_id = get_the_ID();
 //  $page_data['background'] = '';
 // 
 ?>
-<a href="https://plus.google.com/106443940266608905581" rel="publisher">Google+</a>
 
 <style>
 	.wrapper {
@@ -163,7 +162,7 @@ $page_id = get_the_ID();
   <div style="clear:both"></div>
   
   <div class="legal">
-   <p>Navigare Y.W. - Via Napoli, 108 - 09124 Cagliari (CA) Italy - tel. +39 070 6402523 - fax. 178 2203243 - cell. +39 3351436586 - PI 03173110929 <p>
+   <p>Navigare Y.W. - Via Napoli, 108 - 09124 Cagliari (CA) Italy - tel. +39 070 6402523 - fax. 178 2203243 - cell. +39 3351436586 - PI 03173110929 <a href="https://plus.google.com/106443940266608905581" rel="publisher">Google+</a><p>
   </div>
 
 </div>
