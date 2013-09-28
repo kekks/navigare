@@ -1489,6 +1489,13 @@ div.page-404 article.blog-post  {
 
 .trick{padding: 40px;}
 
+@media all and (width: 810px ) {
+
+	div.post-comments { width: 89%; }
+	#nav { display: none; }	
+	#nav-select { display: inline-block; }
+}
+}
 /* 
 
 .post-image {height:300px; overflow:hidden;}
