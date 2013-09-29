@@ -25,6 +25,7 @@
 	<style>
 	#slogan h1 a{width:260px !important;}
 	#slogan h1 {font-size:17px !important;}
+	
 
 	</style>
 
