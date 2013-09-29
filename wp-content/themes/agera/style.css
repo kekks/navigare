@@ -188,7 +188,7 @@ div.page-container div.page-content {
 	-webkit-overflow-scrolling: touch; 
 	background: white;
 	max-height: 80%;
-	max-width: 700px; 
+	max-width: 810px; 
 }
 
 div.page-container.full-width { max-width: 100%; width: 100%; min-width: 100%; max-height: 100%} 
