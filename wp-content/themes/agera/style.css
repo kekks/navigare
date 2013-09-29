@@ -1340,7 +1340,7 @@ div.page-404 article.blog-post  {
 /* 	#nav-select { display: inline-block; } */
 }
 
-@media only screen and (max-width: 700px ) {
+@media only screen and (max-width: 812px ) {
 	div.posts-container aside.post-meta {
 		position: relative;
 		float: none;
