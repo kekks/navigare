@@ -2115,7 +2115,7 @@ function _default_wp_die_handler( $message, $title = '', $args = array() ) {
 			-webkit-border-radius: 3px;
 			border-radius: 3px;
 			border: 1px solid #dfdfdf;
-			max-width: 700px;
+			max-width: 810px;
 		}
 		h1 {
 			border-bottom: 1px solid #dadada;
