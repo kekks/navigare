@@ -32,7 +32,7 @@ do_action( 'activate_header' );
 function do_activate_header() {
 	do_action( 'activate_wp_head' );
 }
-// add_action( 'wp_head', 'do_activate_header' );
+add_action( 'wp_head', 'do_activate_header' );
 
 /**
  * Loads styles specific to this page.
