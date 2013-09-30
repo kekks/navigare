@@ -1340,7 +1340,8 @@ div.page-404 article.blog-post  {
 /* 	#nav-select { display: inline-block; } */
 }
 
-@media only screen and (max-width: 810px ) {
+@media only screen and (max-width: 700px ) {
+
 	div.posts-container aside.post-meta {
 		position: relative;
 		float: none;
@@ -1368,7 +1369,7 @@ div.page-404 article.blog-post  {
 	#nav-select { display: inline-block; }
 }
 
-@media only screen and (max-width: 600px),
+@media only screen and (max-width: 810px),
 	   only screen and (-webkit-min-device-pixel-ratio : 1.5),
 	   only screen and (min-device-pixel-ratio : 1.5) {
 	   
