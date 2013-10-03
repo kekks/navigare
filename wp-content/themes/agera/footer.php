@@ -3,20 +3,14 @@
  * @package WordPress
  * @subpackage Agera
  */
- 
-$mp_option = agera_get_global_options();
 global $page_id;
-?>
-
+$mp_option = agera_get_global_options(); ?>
 <div class="clear"></div>
-<!-- 
 <span class="mpc-footer-ribbon">
 	<span class="plus"></span>
 	<span class="minus"></span>
 </span>
- -->
 <footer id="agera_footer">
-		
 	<p class="copyrights">
 		<?php echo $mp_option['agera_copyright_text']; ?>
 	</p>
@@ -126,11 +120,11 @@ global $page_id;
 		</li>
 		<?php } ?>
 	</ul>
-			
+
 
 	<?php wp_footer(); ?>
 </footer><!-- footer end -->
 </div><!-- #page end -->
-	
+
 </body>
 </html>

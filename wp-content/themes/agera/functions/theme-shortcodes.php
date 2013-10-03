@@ -78,7 +78,6 @@ function mpc_toggle_shortcode($atts, $content = null){
 
 add_shortcode('toggle', 'mpc_toggle_shortcode');
 
-
 /*--------------------------- END Toggle Shortcode -------------------------------- */
 
 /*-----------------------------------------------------------------------------------*/
@@ -102,15 +101,12 @@ function mpc_button_shortcode($atts, $content = null ) {
     	.mpc-button.<?php echo $class; ?> {
 	    	background: <?php echo $background; ?>!important;
 	    	color: <?php echo $text_color; ?>!important;
-
     	}
     	
     	#shortcode-preview .mpc-button.<?php echo $class; ?>:hover,
     	.mpc-button.<?php echo $class; ?>:hover {
-	    	background: <?php echo $background; ?>!important;
-	    	color: #ec9b00!important;
-/* 	    	color: <?php echo $text_color_hover; ?>!important; */
-
+	    	background: <?php echo $background_hover; ?>!important;
+	    	color: <?php echo $text_color_hover; ?>!important;
     	}
     
     </style>
@@ -500,7 +496,6 @@ function mpc_lists_shortcode($atts, $content = null ) {
 
 add_shortcode('list', 'mpc_lists_shortcode');
 
-
 /*--------------------------- END Lists -------------------------------- */
 
 /*-----------------------------------------------------------------------------------*/
@@ -517,7 +512,6 @@ function mpc_contact_form_shortcode($params = array()) {
 }
 
 add_shortcode('contact_form', 'mpc_contact_form_shortcode');
-
 
 /*--------------------------- END Contact Form -------------------------------- */
 
