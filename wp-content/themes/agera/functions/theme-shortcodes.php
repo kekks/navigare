@@ -106,6 +106,7 @@ function mpc_button_shortcode($atts, $content = null ) {
     	#shortcode-preview .mpc-button.<?php echo $class; ?>:hover,
     	.mpc-button.<?php echo $class; ?>:hover {
 	    	background: <?php echo $background_hover; ?>!important;
+	    	color: #ec9b00!important;
 	    	color: <?php echo $text_color_hover; ?>!important;
     	}
     

@@ -18,6 +18,12 @@
 		wp_enqueue_script( 'comment-reply' );
 		wp_head(); ?>
 	</head>
+	<style>
+	#slogan h1 a{width:260px !important;}
+	#slogan h1 {font-size:17px !important;}
+	
+
+	</style>
 
 	<body <?php body_class(); ?>>
 
@@ -32,6 +38,18 @@
 
 	     			 <div id="slogan">
 	    	  			<?php agera_add_logo(); ?>
+	  			    	<div id="log" style="float:left;"><a href="http://my-yacht-charter.com/charter-motor-yacht/"><img src="http://my-yacht-charter.com/wp-content/uploads/2013/07/mm.png"></a></div>
+	  			    	<div id="log" style="float:left;"><a href="http://my-yacht-charter.com/charter-sail-yacht/"><img src="http://my-yacht-charter.com/wp-content/uploads/2013/07/s.png"></a></div>  
 	  				</div> <!-- end slogan -->
 	   			</div> <!-- end header -->
+	   			<script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-42916409-1', 'my-yacht-charter.com');
+            ga('send', 'pageview');
+
+          </script>
 			</div> <!-- end header-container -->

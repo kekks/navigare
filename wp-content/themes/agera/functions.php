@@ -679,7 +679,7 @@ function add_pages_meta_box() {
 		
 	$template_file = get_post_meta($post_id, '_wp_page_template',TRUE);
 	
-	add_meta_box( 'portfolio-project', 'Project Settings', 'portfolio_meta_box', 'portfolio', 'normal'); 
+	add_meta_box( 'portfolio-project', 'Boat Info', 'portfolio_meta_box', 'portfolio', 'normal'); 
 	
 	if($template_file != 'portfolio.php' && $template_file != 'portfolio-no-flip.php' && $template_file != 'gallery.php') {
 		if ($template_file != 'full-width.php') 
@@ -706,7 +706,7 @@ function portfolio_meta_box($post) {
 	if(isset( $values['project_background'] ))
 		$project_background =  esc_attr( $values['project_background'][0] );
 	else 
-		$project_background = "#F9625B";
+		$project_background = "#2e3971";
 		
 	if(isset( $values['full_width_asset'] ))
 		$full_width_asset =  esc_attr( $values['full_width_asset'][0] );
@@ -733,6 +733,67 @@ function portfolio_meta_box($post) {
 	else 
 		$share = "on";	
 		
+
+
+//  -------------ADDED BOAT INFO 
+if(isset( $values['visualizzascheda'] ))
+		$visualizzascheda =  esc_attr( $values['visualizzascheda'][0] );
+	else 
+		$visualizzascheda = "";
+		
+if(isset( $values['visualizzasocial'] ))
+		$visualizzasocial =  esc_attr( $values['visualizzasocial'][0] );
+	else 
+		$visualizzasocial = "";
+		
+if(isset( $values['boatlenght'] ))
+		$boatlenght =  esc_attr( $values['boatlenght'][0] );
+	else 
+		$boatlenght = "";
+		
+if(isset( $values['base'] ))
+		$base =  esc_attr( $values['base'][0] );
+	else 
+		$base = "";
+		
+// if(isset( $values['beam'] ))
+// 		$beam =  esc_attr( $values['beam'][0] );
+// 	else 
+// 		$beam = "";
+		
+if(isset( $values['builder'] ))
+		$builder =  esc_attr( $values['builder'][0] );
+	else 
+		$builder = "";
+
+if(isset( $values['model'] ))
+		$model =  esc_attr( $values['model'][0] );
+	else 
+		$model = "";
+
+if(isset( $values['year'] ))
+		$year =  esc_attr( $values['year'][0] );
+	else 
+		$year = "";
+
+if(isset( $values['guestcabins'] ))
+		$guestcabins =  esc_attr( $values['guestcabins'][0] );
+	else 
+		$guestcabins = "";
+		
+if(isset( $values['crew'] ))
+		$crew =  esc_attr( $values['crew'][0] );
+	else 
+		$crew = "";
+		
+if(isset( $values['weeklyrate'] ))
+		$weeklyrate =  esc_attr( $values['weeklyrate'][0] );
+	else 
+		$weeklyrate = "";
+		
+		
+//  ----------- END ADDED BOAT INFO
+
 	if(isset($values['lightbox_enable'] ))
 		$lightbox_enable =  esc_attr( $values['lightbox_enable'][0] );
 	else 
@@ -753,34 +814,70 @@ function portfolio_meta_box($post) {
 	
 	$box_output = '';
 	
-	$box_output .= '<label for="project_background">Project Background</label> ';
-	$box_output .= '<input type="text" name="project_background" id="project_background" value="'.$project_background.'"/></br>';
+// 	$box_output .= '<label for="project_background">Project Background</label> ';
+//    	$box_output .= '<input type="text" name="project_background" id="project_background" value="'.$project_background.'"/></br>';
+
+   	$box_output .= '<label for="visualizzascheda"style="color:red;">Inserire almeno un carattere per nascondere la scheda barca</label> ';	
+   	$box_output .= '<input type="text" name="visualizzascheda" id="visualizzascheda" value="'.$visualizzascheda.'"style="border:1px solid red;"/></br>';
+   
+   	$box_output .= '<label for="visualizzasocial"style="color:red;">Inserire almeno un carattere per nascondere i link share</label> ';	
+   	$box_output .= '<input type="text" name="visualizzasocial" id="visualizzasocial" value="'.$visualizzasocial.'"style="border:1px solid red;"/></br>';
+   	
+   	
+   	$box_output .= '<label for="boatlenght">Length</label> ';	
+   	$box_output .= '<input type="text" name="boatlenght" id="boatlenght" value="'.$boatlenght.'"/></br>';
+   	
+//    	$box_output .= '<label for="beam">Beam</label> ';	
+//    	$box_output .= '<input type="text" name="beam" id="beam" value="'.$beam.'"/></br>';
+   	
+   	$box_output .= '<label for="builder">Builder</label> ';	
+   	$box_output .= '<input type="text" name="builder" id="builder" value="'.$builder.'"/></br>';
+
+   	$box_output .= '<label for="model">Model</label> ';	
+   	$box_output .= '<input type="text" name="model" id="model" value="'.$model.'"/></br>';
+
+   	$box_output .= '<label for="year">Year</label> ';	
+   	$box_output .= '<input type="text" name="year" id="year" value="'.$year.'"/></br>';
+
+   	$box_output .= '<label for="guestcabins">Guest Cabins</label> ';	
+   	$box_output .= '<input type="text" name="guestcabins" id="guestcabins" value="'.$guestcabins.'"/></br>';
+
+   	$box_output .= '<label for="crew">Crew</label> ';	
+   	$box_output .= '<input type="text" name="crew" id="crew" value="'.$crew.'"/></br>';
 	
-	$box_output .= '<label for="client">Project Client</label> ';	
-	$box_output .= '<input type="text" name="client" id="client" value="'.$client.'"/></br>';
-	
-	$box_output .= '<label for="tools">Tools Used</label> '; 	
-	$box_output .= '<input type="text" name="tools" id="tools" value="'.$tools.'"/></br>';
-	
-	$box_output .= '<label for="copyright">Artwork By</label> '; 	
-	$box_output .= '<input type="text" name="copyright" id="copyright" value="'.$copyright.'"/></br>';
-	
-	$box_output .= '<label for="share">Share</label> ';
-	$box_output .= '<input type="checkbox" id="share" name="share"'.$share.'/></br>';
-	
-	$box_output .= '<label for="full_width_asset">Full Width Asset:</label></br> ';
-	$box_output .= '<textarea type="text" name="full_width_asset" id="full_width_asset" style="width: 100%; height: 200px;">'.$full_width_asset.'</textarea></br>';
-	
-	$box_output .= '<label for="lightbox_enable">Enable Lightbox</label> ';
-	$box_output .= '<input type="checkbox" id="lightbox_enable" name="lightbox_enable"'.$lightbox_enable.'/></br>';
-	
-	$box_output .= '<label for="caption">Lightbox Caption</label> '; 	
-	$box_output .= '<input type="text" name="caption" id="caption" value="'.$caption.'"/></br>';
-	
-	$box_output .= '<label for="lightbox_src">Lightbox Source</label> '; 	
-	$box_output .= '<input type="text" name="lightbox_src" id="lightbox_src" value="'.$lightbox_src.'"/></br>';
-	
-	echo $box_output;
+   	$box_output .= '<label for="base">Base</label> ';	
+   	$box_output .= '<input type="text" name="base" id="base" value="'.$base.'"/></br>';
+
+   	$box_output .= '<label for="weeklyrate">Weekly rate</label> ';	
+   	$box_output .= '<input type="text" name="weeklyrate" id="weeklyrate" value="'.$weeklyrate.'"/></br>';
+
+// 
+//    	
+// $box_output .= '<label for="client">Project Client</label> ';	
+//    	$box_output .= '<input type="text" name="client" id="client" value="'.$client.'"/></br>';
+//    	
+//    	$box_output .= '<label for="tools">Tools Used</label> '; 	
+//    	$box_output .= '<input type="text" name="tools" id="tools" value="'.$tools.'"/></br>';
+//    	
+//    	$box_output .= '<label for="copyright">Artwork By</label> '; 	
+//    	$box_output .= '<input type="text" name="copyright" id="copyright" value="'.$copyright.'"/></br>';
+//    	
+//    	$box_output .= '<label for="share">Share</label> ';
+//    	$box_output .= '<input type="checkbox" id="share" name="share"'.$share.'/></br>';
+//    	
+//    	$box_output .= '<label for="full_width_asset">Full Width Asset:</label></br> ';
+//    	$box_output .= '<textarea type="text" name="full_width_asset" id="full_width_asset" style="width: 100%; height: 200px;">'.$full_width_asset.'</textarea></br>';
+//    	
+//     $box_output .= '<label for="lightbox_enable">Enable Lightbox</label> ';
+//    	$box_output .= '<input type="checkbox" id="lightbox_enable" name="lightbox_enable"'.$lightbox_enable.'/></br>';
+//    	
+//    	$box_output .= '<label for="caption">Lightbox Caption</label> '; 	
+//    	$box_output .= '<input type="text" name="caption" id="caption" value="'.$caption.'"/></br>';
+//    	
+//    	$box_output .= '<label for="lightbox_src">Lightbox Source</label> '; 	
+//    	$box_output .= '<input type="text" name="lightbox_src" id="lightbox_src" value="'.$lightbox_src.'"/></br>';
+   	
+   	echo $box_output;
 }
 
 function portfolio_page_meta_box($post) {
@@ -799,7 +896,7 @@ function portfolio_page_meta_box($post) {
 	if(isset( $values['item_number'] ))
 		$item_number = esc_attr( $values['item_number'][0] );
 	else 
-		$item_number = '10';
+		$item_number = '30';
 	
 	$box_output = '';
 
@@ -933,6 +1030,47 @@ function save_portfolio_meta_box($post_id) {
 		update_post_meta( $post_id, 'lightbox_src', wp_kses($_POST['lightbox_src'], $allowed));
 		
    
+
+if(isset($_POST['visualizzascheda']))  
+        update_post_meta( $post_id, 'visualizzascheda', wp_kses($_POST['visualizzascheda'], $allowed)); 
+
+if(isset($_POST['visualizzasocial']))  
+        update_post_meta( $post_id, 'visualizzasocial', wp_kses($_POST['visualizzasocial'], $allowed)); 
+
+
+if(isset($_POST['boatlenght']))  
+        update_post_meta( $post_id, 'boatlenght', wp_kses($_POST['boatlenght'], $allowed)); 
+        
+// if(isset($_POST['beam']))  
+//         update_post_meta( $post_id, 'beam', wp_kses($_POST['beam'], $allowed)); 
+
+if(isset($_POST['base']))  
+        update_post_meta( $post_id, 'base', wp_kses($_POST['base'], $allowed)); 
+
+        
+if(isset($_POST['builder']))  
+        update_post_meta( $post_id, 'builder', wp_kses($_POST['builder'], $allowed)); 
+        
+if(isset($_POST['model']))  
+        update_post_meta( $post_id, 'model', wp_kses($_POST['model'], $allowed)); 
+        
+if(isset($_POST['year']))  
+        update_post_meta( $post_id, 'year', wp_kses($_POST['year'], $allowed)); 
+        
+if(isset($_POST['guestcabins']))  
+        update_post_meta( $post_id, 'guestcabins', wp_kses($_POST['guestcabins'], $allowed)); 
+
+if(isset($_POST['crew']))  
+        update_post_meta( $post_id, 'crew', wp_kses($_POST['crew'], $allowed)); 
+        
+if(isset($_POST['weeklyrate']))  
+        update_post_meta( $post_id, 'weeklyrate', wp_kses($_POST['weeklyrate'], $allowed)); 
+
+
+
+// ------------------
+  	
+  	
 	
 }
 

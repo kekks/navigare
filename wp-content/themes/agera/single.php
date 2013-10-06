@@ -12,7 +12,18 @@
 	$post_type = $post->post_type;
 		
 ?>
-
+<style>
+  .mpc-button {
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 14px;
+  display: inline-block;
+  margin: 0px 10px 10px 0px;
+  background: #2e3971!important;
+  color: #FFFFFF!important;
+  }
+</style>
 
 <div id="content" role="main">
 <!-- Display posts -->
@@ -32,28 +43,93 @@ if(have_posts()) {
 		
 		if(isset($post_meta['client'][0]))	
 			$page_data['client'] = $post_meta['client'][0]; 
+// 		else
+// 			$page_data['client'] = '';
+// 			
+// 		if(isset($post_meta['tools'][0]))	
+// 			$page_data['tools'] = $post_meta['tools'][0]; 
+// 		else
+// 			$page_data['tools'] = '';
+// 			
+// 		if(isset($post_meta['copyright'][0]))	
+// 			$page_data['copyright'] = $post_meta['copyright'][0]; 
+// 		else
+// 			$page_data['copyright'] = '';
+// 			
+// 		if(isset($post_meta['share'][0]))	
+// 			$page_data['share'] = $post_meta['share'][0]; 
+// 		else
+// 			$page_data['share'] = '0';
+// 			
+// 		$class_like = "mpc-like";
+// 		
+// 		if(!$page_data['share']) 
+// 			$class_like .= "-big";
+
+//  -----------------CUSTOM
+
+if(isset($post_meta['visualizzascheda'][0]))	
+			$page_data['visualizzascheda'] = $post_meta['visualizzascheda'][0]; 
 		else
-			$page_data['client'] = '';
+			$page_data['visualizzascheda'] = '';
 			
-		if(isset($post_meta['tools'][0]))	
-			$page_data['tools'] = $post_meta['tools'][0]; 
+if(isset($post_meta['visualizzasocial'][0]))	
+			$page_data['visualizzasocial'] = $post_meta['visualizzasocial'][0]; 
 		else
-			$page_data['tools'] = '';
-			
-		if(isset($post_meta['copyright'][0]))	
-			$page_data['copyright'] = $post_meta['copyright'][0]; 
+			$page_data['visualizzasocial'] = '';			
+
+if(isset($post_meta['testohome'][0]))	
+			$page_data['testohome'] = $post_meta['testohome'][0]; 
 		else
-			$page_data['copyright'] = '';
-			
-		if(isset($post_meta['share'][0]))	
-			$page_data['share'] = $post_meta['share'][0]; 
+			$page_data['testohome'] = '';
+
+if(isset($post_meta['boatlenght'][0]))	
+			$page_data['boatlenght'] = $post_meta['boatlenght'][0]; 
 		else
-			$page_data['share'] = '0';
+			$page_data['boatlenght'] = '';
 			
-		$class_like = "mpc-like";
-		
-		if(!$page_data['share']) 
-			$class_like .= "-big";
+// if(isset($post_meta['beam'][0]))	
+// 			$page_data['beam'] = $post_meta['beam'][0]; 
+// 		else
+// 			$page_data['beam'] = '';
+
+if(isset($post_meta['builder'][0]))	
+			$page_data['builder'] = $post_meta['builder'][0]; 
+		else
+			$page_data['builder'] = '';
+			
+if(isset($post_meta['model'][0]))	
+			$page_data['model'] = $post_meta['model'][0]; 
+		else
+			$page_data['model'] = '';
+			
+if(isset($post_meta['year'][0]))	
+			$page_data['year'] = $post_meta['year'][0]; 
+		else
+			$page_data['year'] = '';
+			
+if(isset($post_meta['guestcabins'][0]))	
+			$page_data['guestcabins'] = $post_meta['guestcabins'][0]; 
+		else
+			$page_data['guestcabins'] = '';
+
+if(isset($post_meta['crew'][0]))	
+			$page_data['crew'] = $post_meta['crew'][0]; 
+		else
+			$page_data['crew'] = '';
+
+if(isset($post_meta['base'][0]))	
+			$page_data['base'] = $post_meta['base'][0]; 
+		else
+			$page_data['base'] = '';
+			
+if(isset($post_meta['weeklyrate'][0]))	
+			$page_data['weeklyrate'] = $post_meta['weeklyrate'][0]; 
+		else
+			$page_data['weeklyrate'] = '';
+						
+
+// ------------END CUSTOM
 		
 
 			?>	
@@ -111,10 +187,51 @@ if(have_posts()) {
 			</div>
 			<aside class="post-meta">
 				<div class="meta-content">
+<?php if($page_data['visualizzascheda'] == '') { ?>		
+<?php if($post_type == 'portfolio') { ?>	
+          <h5>Boat info:</h5>
+<?php } ?>          
 					<ul>
-						<li><em>Date:</em> <?php echo get_the_date('M j, Y'); ?></li>
-						<li><em>Author:</em> <?php echo the_author_posts_link(); ?></li>
+						<?php if($page_data['boatlenght'] != '') { ?>
+							<li><em>Length:</em> <?php echo $page_data['boatlenght']; ?></li>
+						<?php } ?>
 						
+						<!-- 
+<?php if($page_data['beam'] != '') { ?>
+							<li><em>Beam:</em> <?php echo $page_data['beam']; ?></li>
+						<?php } ?>
+ -->
+						
+						<?php if($page_data['builder'] != '') { ?>
+							<li><em>Builder:</em> <?php echo $page_data['builder']; ?></li>
+						<?php } ?>
+						
+						<?php if($page_data['model'] != '') { ?>
+							<li><em>Model:</em> <?php echo $page_data['model']; ?></li>
+						<?php } ?>
+						
+						<?php if($page_data['year'] != '') { ?>
+							<li><em>Year:</em> <?php echo $page_data['year']; ?></li>
+						<?php } ?>
+						
+						<?php if($page_data['guestcabins'] != '') { ?>
+							<li><em>Guest cabin:</em> <?php echo $page_data['guestcabins']; ?></li>
+						<?php } ?>
+						
+						<?php if($page_data['crew'] != '') { ?>
+							<li><em>Crew:</em> <?php echo $page_data['crew']; ?></li>
+						<?php } ?>
+						
+						<?php if($page_data['base'] != '') { ?>
+							<li><em>Base:</em> <?php echo $page_data['base']; ?></li>
+						<?php } ?>
+						
+						<?php if($page_data['weeklyrate'] != '') { ?>
+							<li><em>Weekly rates:</em> <?php echo $page_data['weeklyrate']; ?></li>
+						<?php } ?>
+							
+						
+				<!-- 
 						<?php if($post_type != 'portfolio') { ?>
 							<li><em>Categories:</em> <?php echo get_the_category_list( ', '); ?></li>
 						<?php } ?>
@@ -123,8 +240,8 @@ if(have_posts()) {
 							<li><em>Tags:</em> <?php echo get_the_tag_list('', ', '); ?></li>
 						<?php } ?>
 						
-						<?php if($page_data['client'] != '') { ?>
-							<li><em>Client:</em> <?php echo $page_data['client']; ?></li>
+						<?php if($page_data['boatlenght'] != '') { ?>
+							<li><em>Lenght:</em> <?php echo $page_data['boatlenght']; ?></li>
 						<?php }
 						if($page_data['tools'] != '') { ?>
 							<li><em>Tools:</em> <?php echo $page_data['tools']; ?></li>
@@ -133,23 +250,47 @@ if(have_posts()) {
 						<?php if($page_data['copyright'] != '') { ?>
 							<li><em>Artwork By:</em> <?php echo $page_data['copyright']; ?></li>
 						<?php } ?>
+ -->
 						
-						<li class="<?php echo $class_like; ?>"><em>Like:</em> <?php  if( function_exists('zilla_likes') ) zilla_likes(); ?></li>
+						<!-- 
+<li class="<?php echo $class_like; ?>"><em>Like:</em> <?php  if( function_exists('zilla_likes') ) zilla_likes(); ?></li>
 						
+ -->
+<!-- 
 						<?php if($page_data['share']) { ?>
 							<li><em>Share:</em> <?php if( function_exists('zilla_share') ) zilla_share(); ?></li>
 						<?php } ?>
+ -->
+
 					</ul>
-					<span class="previous-container">
-						<?php previous_post_link('<span class="previous-post"></span> %link', 'Previous', false) ;?>
-					</span>
-					<span class="next-container">
-						<?php next_post_link('%link <span class="next-post"></span>', 'Next', false) ;?>
-					</span>
+<?php if($post_type == 'portfolio') { ?>					
+<p><a class="mpc-button mpc-button-1" href="mailto:info@my-yacht-charter.com?Subject=Info about <?php the_title(); ?>" style="color:white !important;margin-top:10px;">Ask for availability</a></p>
+<?php } ?>
+					
+	<?php } ?>
+<?php if($page_data['visualizzasocial'] == '') { ?>
+          <h5>Share:</h5>
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style addthis_16x16_style">
+<a class="addthis_button_facebook"></a>
+<a class="addthis_button_twitter"></a>
+<a class="addthis_button_google_plusone_share"></a>
+<a class="addthis_button_pinterest_share"></a>
+<a class="addthis_button_compact"></a><a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-51a3c5dd5b9d5d7f"></script>
+<!-- AddThis Button END -->
+	<?php } ?>
+					<!-- <span class="previous-container">
+					           <?php previous_post_link('<span class="previous-post"></span> %link', 'Previous', false) ;?>
+					         </span>
+					         <span class="next-container">
+					           <?php next_post_link('%link <span class="next-post"></span>', 'Next', false) ;?>
+					         </span> -->
 				</div>
 			</aside>
 			<div class="post-comments">
-				<?php comments_template('', true); ?>
+				<?php comments_template('', false); ?>
 	    	</div><!-- post_comments -->  
 	    </article><!-- end mpc-post -->
     <?php } ?>
