@@ -249,16 +249,18 @@ ul#nav > li {
 ul#nav > li > a { text-decoration: none; }
 
 ul#nav > li.current-menu-item > a {
-	background: #f9625b;
-	color: #FFFFFF;
+	background: #ffffff !important;
+	color: #2e3971 !important;
+	text-decoration:underline;
 }
 
 ul#nav > li > a:hover {
-	background: #f9625b;
+	background: #2e3971;
 	color: #FFFFFF!important;
 }
 
 ul#nav > li {
+	color:#2e3971 !important;
 	background:none;
 	float:left;
 	list-style:none;
@@ -271,8 +273,21 @@ ul#nav li a {
 	font-size:14px;
 	padding: 6px 15px;
 	text-decoration:none;
-	color: #414141;
+	 color: #2e3971; 
 }
+
+/* ADDED */
+
+ul#nav li a:hover {
+	display:block; 
+	font-size:14px;
+	padding: 6px 15px;
+	text-decoration:underline;
+	color: #2e3971; 
+	background:none !important;
+}
+
+/* ------------------END */
 
 /* Drop Down */
 ul.sub-menu {
@@ -326,7 +341,7 @@ ul.sub-menu li a{
 }
 
 ul.sub-menu li a:hover {
-	color: #F9625B!important;
+	color: #2e3971!important;
 }
 
 /* Drop Down - Third Level */
@@ -470,7 +485,7 @@ aside.post-meta div.meta-content  ul li em {
 
 aside.post-meta div.meta-content  ul li a { color: #414141; }
 
-aside.post-meta div.meta-content  ul li a:hover { color: #F9625B; }
+aside.post-meta div.meta-content  ul li a:hover { color: #2e3971; }
 
 aside.post-meta .previous-post {
 	display: inline-block;
@@ -501,7 +516,7 @@ aside.post-meta .previous-container a,
 aside.post-meta .next-container  a { color: #515151; }
 
 aside.post-meta .previous-container a:hover,
-aside.post-meta .next-container a:hover { color: #F9625B; }
+aside.post-meta .next-container a:hover { color: #2e3971; }
 
 aside.post-meta .next-previous a {
 	display: inline-block;
@@ -899,9 +914,9 @@ div.agera_comment_gravatar {
 }
 
 .comment_meta a { color: #515151; }
-.comment_meta a:hover { color: #F9625B; }
+.comment_meta a:hover { color: #2e3971; }
 #comments .comment-reply-link { text-transform: lowercase; }
-#comments span.author { color: #F9625B; }
+#comments span.author { color: #2e3971; }
 #comments .agera_message { margin-left: 77px; }
 .comments_holder { margin-bottom: 40px; }
 
@@ -943,7 +958,7 @@ div.agera_comment_gravatar {
 #respond textarea.error,
 #contact_form .comment-from-who input.error,
 #respond .comment-from-who input.error {
-	background: #F9625B;
+	background: #2e3971;
 	color: #ffffff;
 }
 
@@ -969,7 +984,7 @@ div.agera_comment_gravatar {
 
 #contact_form label.error,
 #respond label.error {
-	color: #F9625B;
+	color: #2e3971;
 	font-style: italic;
 	font-size: 12px;
 	margin-left: 0px;
@@ -984,7 +999,7 @@ div.agera_comment_gravatar {
 	font-size: 14px;
 	font-weight: bold;
 	padding: 5px 10px;
-	background: #F9625B;
+	background: #2e3971;
 	color: #FFFFFF;
 	cursor: pointer;
 	float: right;
@@ -994,15 +1009,15 @@ div.agera_comment_gravatar {
 
 #contact_form input#reset { margin-right: 15px; }
 
-#respond a#cancel-comment-reply-link { color: #F9625B; }
+#respond a#cancel-comment-reply-link { color: #2e3971; }
 #respond a#cancel-comment-reply-link:hover { color: #313131; }
 
 #contact_form input#reset:hover,
 #contact_form input#submit:hover,
-#respond input#submit:hover { color: #242424; }
+#respond input#submit:hover { color: #ec9b00 !important; }
 
 #respond p.logged-in-as a { color: #515151; }
-#respond p.logged-in-as a:hover { color: #F9625B; }
+#respond p.logged-in-as a:hover { color: #2e3971; }
 
 #respond p.comment-notes,
 #respond p.form-allowed-tags { display: none; }
@@ -1018,7 +1033,7 @@ div.agera_comment_gravatar {
 #comments .depth-5 { margin-left: 82px; }
 
 #contact_form textarea.error {
-	background: #F9625B!important;
+	background: #2e3971!important;
 	color: #ffffff!important;
 }
 
@@ -1116,10 +1131,10 @@ div.portfolio.flip .mpc-card .face.back {
 	transform: rotateY(180deg);
 	color: white;
 	text-align: center;
-	background-color: #F9625B;
+	background-color: #2e3971;
 }
 
-div.portfolio.no-flip .face.back { opacity: 0; color: #FFFFFF; visibility: hidden; }
+div.portfolio.no-flip .face.back { opacity: 0; cursor: pointer; color: #FFFFFF; visibility: hidden; background:rgba(0,0,0,0.8); }
 
 .mpc-card .face.back .zilla-likes {
 	position: absolute;
