@@ -1260,8 +1260,8 @@ div.mpc-portfolio-categories ul li a {
 
 div.mpc-portfolio-categories ul li a.active,
 div.mpc-portfolio-categories ul li a:hover {
-	background: #F9625B;
-	color: white;
+	background: #f2b253;
+	color: #2e3971;
 }
 
 #mpc_load_more {
