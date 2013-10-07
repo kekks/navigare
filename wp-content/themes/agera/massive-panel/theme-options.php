@@ -10,6 +10,7 @@ function mp_options() {
     // Sidebar Array
     $sidebar_array = array("left" => "Left", "right" => "Right", "none" => "None");
     $template_root = get_template_directory_uri();
+    //str_replace("localhost", "192.168.0.7", $template_root);
 
     // Socials Array
     $social_array = array(
@@ -235,9 +236,9 @@ function mp_options() {
 					"help" => "false",
 					"help-desc"  => "This is some help text",
 					"id" => $shortname."_active_color",
-					"std" => "#F9625B",
-					"type" => "color");
-
+					"std" => "#2e3971",
+					"type" => "color");	
+					
 	$options[] = array( "name" => "Heading Color",
 					"desc" => "This color value is used for heading.",
 					"help" => "false",
@@ -341,17 +342,17 @@ function mp_options() {
 					"help" => "false",
 					"help-desc"  => "This is some help text",
 					"id" => $shortname."_bg_contact_error_color",
-					"std" => "#F9625B",
-					"type" => "color");
-
+					"std" => "#2e3971",
+					"type" => "color");				
+					
 	$options[] = array( "name" => "Contact Form Label Color on Error",
 					"desc" => "This value specifies the color of contact form & comment form labels on error.",
 					"help" => "false",
 					"help-desc"  => "This is some help text",
 					"id" => $shortname."_bg_contact_labels_error_color",
-					"std" => "#F9625B",
-					"type" => "color");
-
+					"std" => "#2e3971",
+					"type" => "color");	
+					
 	$options[] = array( "name" => "Contact Form Text Color on Error",
 					"desc" => "This value specifies the color of contact form & comment form text on error.",
 					"help" => "false",
@@ -365,7 +366,7 @@ function mp_options() {
 					"help" => "false",
 					"help-desc"  => "This is some help text",
 					"id" => $shortname."_bg_contact_submit",
-					"std" => "#F9625B",
+					"std" => "#2e3971",
 					"type" => "color");
 
 	$options[] = array( "name" => "Contact Form Submit Button Text",
@@ -381,7 +382,7 @@ function mp_options() {
 					"help" => "false",
 					"help-desc"  => "This is some help text",
 					"id" => $shortname."_bg_contact_submit_hover",
-					"std" => "#F9625B",
+					"std" => "#2e3971",
 					"type" => "color");
 
 	$options[] = array( "name" => "Contact Form Submit Button Text on Hover",
@@ -398,9 +399,9 @@ function mp_options() {
 					"help" => "false",
 					"help-desc"  => "This is some help text",
 					"id" => $shortname."_highlight_color",
-					"std" => "#F9625B",
-					"type" => "color");
-
+					"std" => "#2e3971",
+					"type" => "color");	
+					
 	$options[] = array( "name" => "Highlight Text Color",
 					"desc" => "This color is used as highlight text color",
 					"help" => "false",
