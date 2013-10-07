@@ -22,18 +22,12 @@ else
 <style>
 	#content {
 		background: url(<?php echo $page_data['background']; ?>);
-		background-size: cover;
-    background-position: bottom center;
-	}
-	
-	.infopage{
-	  opacity:0.9;
 	}
 </style>
 
 <div id="content" role="main">
 	<div class="page-container">
-		<div class="page-content infopage">
+		<div class="page-content">
 	<?php if(have_posts()){
 		while(have_posts()){
 			the_post(); ?>

@@ -19,9 +19,10 @@ if ( post_password_required() ) { ?>
 		<?php wp_list_comments('callback=comments_all'); ?>
 	</ol>
  
-	<div class="navigation">
-		<div class="alignleft"><?php previous_comments_link() ?></div>
-		<div class="alignright"><?php next_comments_link() ?></div>
+	<div class="mpc-comments-nav">
+		<div class="mpc-prev-comments"><?php previous_comments_link() ?></div>
+		<div class="mpc-next-comments"><?php next_comments_link() ?></div>
+		<div class="clear"></div>
 	</div>
 	
 	<?php else : // this is displayed if there are no comments so far ?>

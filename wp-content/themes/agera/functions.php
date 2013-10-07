@@ -35,10 +35,10 @@ function agera_setup(){
 
 	if (function_exists('add_theme_support')) {
 		add_theme_support( 'automatic-feed-links');
-	    add_theme_support('post-thumbnails');
-	    add_image_size('portfolio-full', 500, 330, true);
-	    add_image_size('blog_post_thumb', 410, 1000, false);
-    }
+		add_theme_support('post-thumbnails');
+		add_image_size('portfolio-full', 500, 330, true);
+		add_image_size('blog_post_thumb', 410, 1000, false);
+	}
 }
 
 add_action( 'after_setup_theme', 'agera_setup' );
@@ -50,9 +50,9 @@ add_action( 'after_setup_theme', 'agera_setup' );
 /*-----------------------------------------------------------------------------------*/
 
 function agera_add_init() {
-    if ( is_admin() ) {     
-        wp_enqueue_style("functions", MPC_THEME_ROOT."/css/admin.css");
-    }
+	if ( is_admin() ) {     
+		wp_enqueue_style("functions", MPC_THEME_ROOT."/css/admin.css");
+	}
 }
 
 add_action( 'admin_print_styles', 'agera_add_init' );
@@ -98,7 +98,6 @@ function agera_enqueue_scripts() {
 	wp_enqueue_style('flex-slider', MPC_THEME_ROOT.'/css/flexslider.css');
 	wp_enqueue_style('fancybox', MPC_THEME_ROOT.'/css/fancybox.css');
 
-	
 	wp_enqueue_script('custom-shortcodes', MPC_THEME_ROOT.'/js/shortcodes.js', array('jquery'));
 	wp_enqueue_script('js-functions', MPC_THEME_ROOT.'/js/functions.js', array('jquery'));
 	wp_enqueue_script('cufon', MPC_THEME_ROOT.'/js/cufon.js', array('jquery'));
@@ -110,6 +109,7 @@ function agera_enqueue_scripts() {
 	wp_enqueue_script('font-helveL', MPC_THEME_ROOT.'/js/helveticaLight.js');
 	wp_enqueue_script('mpc-portfolio', MPC_THEME_ROOT.'/js/mpc-portfolio.js');
 	wp_enqueue_script('jquery-flexslider', MPC_THEME_ROOT.'/js/jquery.flexslider-min.js');
+	wp_enqueue_script('jquery-isotope', MPC_THEME_ROOT.'/js/jquery.isotope.min.js', array('jquery'));
 	wp_enqueue_script('easing-jquery', MPC_THEME_ROOT.'/js/easing-jquery.js', array('jquery'));
 	wp_enqueue_script('mousewheel-jquery', MPC_THEME_ROOT.'/js/jquery.mousewheel.pack.js', array('jquery'));
 	wp_enqueue_script('fancybox-jquery', MPC_THEME_ROOT.'/js/jquery.fancybox.js', array('jquery'));
@@ -198,7 +198,7 @@ function agera_add_my_head() {
 	</script>
 
 
-    
+	
 	<style type="text/css">
 		
 		<?php global $shortname;
@@ -216,6 +216,7 @@ function agera_add_my_head() {
 		.comments_author a,
 		.comment_date,
 		.comment_date a,
+		.mpc-comments-nav a,
 		.list a {
 			color: <?php echo $mp_option[$shortname.'_body_color']; ?>!important;
 		}
@@ -257,7 +258,7 @@ function agera_add_my_head() {
 		}
 		
 		/* Post Background */
-		.blog-post {
+		.blog-post .post-content-wrap {
 			background: <?php echo $mp_option[$shortname.'_bg_color']; ?>!important;
 		}
 		
@@ -377,17 +378,19 @@ function agera_add_my_head() {
 		}
 		
 		.blog-post small a:hover {
+			color: <?php echo $mp_option[$shortname.'_body_color']; ?>!important;
+		}
+		.blog-post .mpc-post-content a {
 			color: <?php echo $mp_option[$shortname.'_active_color']; ?>!important;
 		}
 		
 		/* Button Hover Contrast Font Color */
 		ul#nav > li.current-menu-item > a,
-		ul#nav > li > a:hover {
+		ul#nav > li > a:hover,
+		div.mpc-portfolio-categories ul li.active a, 
+		div.mpc-portfolio-categories ul li a:hover {
 			color: <?php echo $mp_option[$shortname.'_menu_selected_color']; ?>!important;
 		}
-		
-		div.mpc-portfolio-categories ul li.active a, 
-		div.mpc-portfolio-categories ul li a:hover {color:#2e3971 !important;}
 		
 		/* Portfolio Back Font Color */
 		.mpc-card .zilla-likes-count,
@@ -439,24 +442,24 @@ add_action('wp_head', 'agera_add_my_head');
 function agera_create_portfolio() {
 
 	register_taxonomy('portfolio_cat','portfolio', array(
-   	 	'hierarchical' => true,
-    	'show_ui' => true,
-   	 	'query_var' => true,
-    )); // add unique categories to portfolio section 
+		'hierarchical' => true,
+		'show_ui' => true,
+		'query_var' => true,
+	)); // add unique categories to portfolio section 
 	
-    $portfolio_args = array(
-        	'label' => __('Portfolio', 'agera'),
-        	'singular_label' => __('Portfolio', 'agera'),
-        	'public' => true,
-        	'show_ui' => true,
-        	'capability_type' => 'post',
-        	'hierarchical' => false,
-        	'rewrite' => true,
-        	'supports' => array('title', 'editor', 'thumbnail', 'comments'),
-        	'taxonomies' => array('post_tag')
-    );
-    
-    register_post_type('portfolio', $portfolio_args);
+	$portfolio_args = array(
+			'label' => __('Portfolio', 'agera'),
+			'singular_label' => __('Portfolio', 'agera'),
+			'public' => true,
+			'show_ui' => true,
+			'capability_type' => 'post',
+			'hierarchical' => false,
+			'rewrite' => true,
+			'supports' => array('title', 'editor', 'thumbnail', 'comments'),
+			'taxonomies' => array('post_tag')
+	);
+	
+	register_post_type('portfolio', $portfolio_args);
 }
 
 add_action('init', 'agera_create_portfolio');
@@ -514,8 +517,6 @@ function agera_portfolio_columns($type, $page_data) {
 	global $mp_option; 
 	global $shortname;
 	
-	//echo "<pre>".print_r($page_data)."</pre>";
-	
 	if (has_post_thumbnail()) {
 	?>
 		<div class="portfolio-item-thumb">
@@ -523,12 +524,14 @@ function agera_portfolio_columns($type, $page_data) {
 				<div class="front face">
 					<?php the_post_thumbnail( $type ); ?>
 				</div>
-				<div class="back face"><a href="<?php the_permalink(); ?>">
+				<div class="back face" style="background: <?php echo $page_data['background']; ?> ;">
 					<img class="mpc-viniet" src="<?php echo MPC_THEME_ROOT; ?>/images/viniet.png"/>
-					<h2><?php the_title(); ?></h2>
+					<a href="<?php the_permalink(); ?>" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;"></a>
+					<a href="<?php the_permalink(); ?>"><h2><?php the_title(); ?></h2></a>
 					<!-- Remove shortcodes from excerpts -->
-					<p class="mpc-excerpt" style="color:#ffffff;"><?php echo preg_replace('|\[(.+?)\](.+?\[/\\1\])?|s', '', agera_my_excerpt(get_the_content(''), 30));?></p>
-					<!-- <?php if( function_exists('zilla_likes') ) zilla_likes(); ?> -->
+					<p class="mpc-excerpt"><?php echo preg_replace('|\[(.+?)\](.+?\[/\\1\])?|s', '', agera_my_excerpt(get_the_content(''), 160));?></p>
+					<div class="post-excerpt-hidder" style="background: <?php echo $page_data['background']; ?> ;"></div>
+					<?php if( function_exists('zilla_likes') ) zilla_likes(); ?>
 	
 					<?php if(isset($page_data['lightbox']) && $page_data['lightbox']) { 
 						$type = '';
@@ -565,16 +568,10 @@ function agera_portfolio_columns($type, $page_data) {
 						
 						?>
 					
-<!-- 
 						<a class="mpc-fancybox <?php echo $type; ?>" rel="<?php echo $page_data['gallery']; ?>" href="<?php echo $page_data['lightbox_src']; ?>" title="<?php echo $page_data['caption']; ?>"></a>
- -->
 					<?php } ?>
-					<!-- 
-
+					
 					<a class="view-details" href="<?php the_permalink(); ?>"></a>
- -->
- 
-					</a>
 				</div>
 			</div>
 		</div><!-- portfolio_item_thumb -->
@@ -588,8 +585,8 @@ function agera_portfolio_columns($type, $page_data) {
 function agera_my_excerpt($string, $word_limit) {
 	$words = explode(' ', $string, ($word_limit + 1));
 	if (count($words) > $word_limit)
-	    array_pop($words);
-	return implode(' ', $words) . '...';
+		array_pop($words);
+	return strip_tags(implode(' ', $words) . '...');
 }
 	
 /*-----------------------------------------------------------------------------------*/
@@ -648,7 +645,7 @@ function comments_all($comment, $args, $depth) {
 			</div>
 			<div class="clear"></div>
 		</div>
-    </div>
+	</div>
 	<?php 
 }	
 
@@ -682,7 +679,7 @@ function add_pages_meta_box() {
 		
 	$template_file = get_post_meta($post_id, '_wp_page_template',TRUE);
 	
-	add_meta_box( 'portfolio-project', 'Boat Info', 'portfolio_meta_box', 'portfolio', 'normal'); 
+	add_meta_box( 'portfolio-project', 'Project Settings', 'portfolio_meta_box', 'portfolio', 'normal'); 
 	
 	if($template_file != 'portfolio.php' && $template_file != 'portfolio-no-flip.php' && $template_file != 'gallery.php') {
 		if ($template_file != 'full-width.php') 
@@ -706,10 +703,10 @@ function portfolio_meta_box($post) {
 	
 	$values = get_post_custom($post->ID);
 	
-if(isset( $values['project_background'] ))
+	if(isset( $values['project_background'] ))
 		$project_background =  esc_attr( $values['project_background'][0] );
 	else 
-		$project_background = "#2e3971";
+		$project_background = "#F9625B";
 		
 	if(isset( $values['full_width_asset'] ))
 		$full_width_asset =  esc_attr( $values['full_width_asset'][0] );
@@ -736,67 +733,6 @@ if(isset( $values['project_background'] ))
 	else 
 		$share = "on";	
 		
-
-
-//  -------------ADDED BOAT INFO 
-if(isset( $values['visualizzascheda'] ))
-		$visualizzascheda =  esc_attr( $values['visualizzascheda'][0] );
-	else 
-		$visualizzascheda = "";
-		
-if(isset( $values['visualizzasocial'] ))
-		$visualizzasocial =  esc_attr( $values['visualizzasocial'][0] );
-	else 
-		$visualizzasocial = "";
-		
-if(isset( $values['boatlenght'] ))
-		$boatlenght =  esc_attr( $values['boatlenght'][0] );
-	else 
-		$boatlenght = "";
-		
-if(isset( $values['base'] ))
-		$base =  esc_attr( $values['base'][0] );
-	else 
-		$base = "";
-		
-// if(isset( $values['beam'] ))
-// 		$beam =  esc_attr( $values['beam'][0] );
-// 	else 
-// 		$beam = "";
-		
-if(isset( $values['builder'] ))
-		$builder =  esc_attr( $values['builder'][0] );
-	else 
-		$builder = "";
-
-if(isset( $values['model'] ))
-		$model =  esc_attr( $values['model'][0] );
-	else 
-		$model = "";
-
-if(isset( $values['year'] ))
-		$year =  esc_attr( $values['year'][0] );
-	else 
-		$year = "";
-
-if(isset( $values['guestcabins'] ))
-		$guestcabins =  esc_attr( $values['guestcabins'][0] );
-	else 
-		$guestcabins = "";
-		
-if(isset( $values['crew'] ))
-		$crew =  esc_attr( $values['crew'][0] );
-	else 
-		$crew = "";
-		
-if(isset( $values['weeklyrate'] ))
-		$weeklyrate =  esc_attr( $values['weeklyrate'][0] );
-	else 
-		$weeklyrate = "";
-		
-		
-//  ----------- END ADDED BOAT INFO
-
 	if(isset($values['lightbox_enable'] ))
 		$lightbox_enable =  esc_attr( $values['lightbox_enable'][0] );
 	else 
@@ -817,70 +753,34 @@ if(isset( $values['weeklyrate'] ))
 	
 	$box_output = '';
 	
-// 	$box_output .= '<label for="project_background">Project Background</label> ';
-//    	$box_output .= '<input type="text" name="project_background" id="project_background" value="'.$project_background.'"/></br>';
-
-   	$box_output .= '<label for="visualizzascheda"style="color:red;">Inserire almeno un carattere per nascondere la scheda barca</label> ';	
-   	$box_output .= '<input type="text" name="visualizzascheda" id="visualizzascheda" value="'.$visualizzascheda.'"style="border:1px solid red;"/></br>';
-   
-   	$box_output .= '<label for="visualizzasocial"style="color:red;">Inserire almeno un carattere per nascondere i link share</label> ';	
-   	$box_output .= '<input type="text" name="visualizzasocial" id="visualizzasocial" value="'.$visualizzasocial.'"style="border:1px solid red;"/></br>';
-   	
-   	
-   	$box_output .= '<label for="boatlenght">Length</label> ';	
-   	$box_output .= '<input type="text" name="boatlenght" id="boatlenght" value="'.$boatlenght.'"/></br>';
-   	
-//    	$box_output .= '<label for="beam">Beam</label> ';	
-//    	$box_output .= '<input type="text" name="beam" id="beam" value="'.$beam.'"/></br>';
-   	
-   	$box_output .= '<label for="builder">Builder</label> ';	
-   	$box_output .= '<input type="text" name="builder" id="builder" value="'.$builder.'"/></br>';
-
-   	$box_output .= '<label for="model">Model</label> ';	
-   	$box_output .= '<input type="text" name="model" id="model" value="'.$model.'"/></br>';
-
-   	$box_output .= '<label for="year">Year</label> ';	
-   	$box_output .= '<input type="text" name="year" id="year" value="'.$year.'"/></br>';
-
-   	$box_output .= '<label for="guestcabins">Guest Cabins</label> ';	
-   	$box_output .= '<input type="text" name="guestcabins" id="guestcabins" value="'.$guestcabins.'"/></br>';
-
-   	$box_output .= '<label for="crew">Crew</label> ';	
-   	$box_output .= '<input type="text" name="crew" id="crew" value="'.$crew.'"/></br>';
-   	
-   	$box_output .= '<label for="base">Base</label> ';	
-   	$box_output .= '<input type="text" name="base" id="base" value="'.$base.'"/></br>';
-
-   	$box_output .= '<label for="weeklyrate">Weekly rate</label> ';	
-   	$box_output .= '<input type="text" name="weeklyrate" id="weeklyrate" value="'.$weeklyrate.'"/></br>';
-
-// 
-//    	
-// $box_output .= '<label for="client">Project Client</label> ';	
-//    	$box_output .= '<input type="text" name="client" id="client" value="'.$client.'"/></br>';
-//    	
-//    	$box_output .= '<label for="tools">Tools Used</label> '; 	
-//    	$box_output .= '<input type="text" name="tools" id="tools" value="'.$tools.'"/></br>';
-//    	
-//    	$box_output .= '<label for="copyright">Artwork By</label> '; 	
-//    	$box_output .= '<input type="text" name="copyright" id="copyright" value="'.$copyright.'"/></br>';
-//    	
-//    	$box_output .= '<label for="share">Share</label> ';
-//    	$box_output .= '<input type="checkbox" id="share" name="share"'.$share.'/></br>';
-//    	
-//    	$box_output .= '<label for="full_width_asset">Full Width Asset:</label></br> ';
-//    	$box_output .= '<textarea type="text" name="full_width_asset" id="full_width_asset" style="width: 100%; height: 200px;">'.$full_width_asset.'</textarea></br>';
-//    	
-//     $box_output .= '<label for="lightbox_enable">Enable Lightbox</label> ';
-//    	$box_output .= '<input type="checkbox" id="lightbox_enable" name="lightbox_enable"'.$lightbox_enable.'/></br>';
-//    	
-//    	$box_output .= '<label for="caption">Lightbox Caption</label> '; 	
-//    	$box_output .= '<input type="text" name="caption" id="caption" value="'.$caption.'"/></br>';
-//    	
-//    	$box_output .= '<label for="lightbox_src">Lightbox Source</label> '; 	
-//    	$box_output .= '<input type="text" name="lightbox_src" id="lightbox_src" value="'.$lightbox_src.'"/></br>';
-   	
-   	echo $box_output;
+	$box_output .= '<label for="project_background">Project Background</label> ';
+	$box_output .= '<input type="text" name="project_background" id="project_background" value="'.$project_background.'"/></br>';
+	
+	$box_output .= '<label for="client">Project Client</label> ';	
+	$box_output .= '<input type="text" name="client" id="client" value="'.$client.'"/></br>';
+	
+	$box_output .= '<label for="tools">Tools Used</label> '; 	
+	$box_output .= '<input type="text" name="tools" id="tools" value="'.$tools.'"/></br>';
+	
+	$box_output .= '<label for="copyright">Artwork By</label> '; 	
+	$box_output .= '<input type="text" name="copyright" id="copyright" value="'.$copyright.'"/></br>';
+	
+	$box_output .= '<label for="share">Share</label> ';
+	$box_output .= '<input type="checkbox" id="share" name="share"'.$share.'/></br>';
+	
+	$box_output .= '<label for="full_width_asset">Full Width Asset:</label></br> ';
+	$box_output .= '<textarea type="text" name="full_width_asset" id="full_width_asset" style="width: 100%; height: 200px;">'.$full_width_asset.'</textarea></br>';
+	
+	$box_output .= '<label for="lightbox_enable">Enable Lightbox</label> ';
+	$box_output .= '<input type="checkbox" id="lightbox_enable" name="lightbox_enable"'.$lightbox_enable.'/></br>';
+	
+	$box_output .= '<label for="caption">Lightbox Caption</label> '; 	
+	$box_output .= '<input type="text" name="caption" id="caption" value="'.$caption.'"/></br>';
+	
+	$box_output .= '<label for="lightbox_src">Lightbox Source</label> '; 	
+	$box_output .= '<input type="text" name="lightbox_src" id="lightbox_src" value="'.$lightbox_src.'"/></br>';
+	
+	echo $box_output;
 }
 
 function portfolio_page_meta_box($post) {
@@ -888,27 +788,28 @@ function portfolio_page_meta_box($post) {
 	wp_nonce_field( 'my_portfolio_page_meta_box_nonce', 'portfolio_page_meta_box_nonce'); 
 	
 	$values = get_post_custom($post->ID);
-	
-	if(isset( $values['thumb_width'] ))
-		$thumb_width =  esc_attr( $values['thumb_width'][0] );
-	else 
-		$thumb_width = '329';
 		
+	if(isset( $values['big_portfolio'] ))
+		$big_portfolio = esc_attr( $values['big_portfolio'][0] );
+	else 
+		$big_portfolio = 'off';
+
+	$big_portfolio = checked($big_portfolio, 'on', false);
+
 	if(isset( $values['item_number'] ))
-		$item_number =  esc_attr( $values['item_number'][0] );
+		$item_number = esc_attr( $values['item_number'][0] );
 	else 
-		$item_number = '30';
-		
+		$item_number = '10';
 	
 	$box_output = '';
+
+	$box_output .= '<label for="big_portfolio">Big Portfolio</label> ';
+	$box_output .= '<input type="checkbox" name="big_portfolio" id="big_portfolio" '.$big_portfolio.'/></br>';
 	
-	$box_output .= '<label for="thumb_width">Thumbnail Minimum Width</label> ';
-   	$box_output .= '<input type="text" name="thumb_width" id="thumb_width" value="'.$thumb_width.'"/></br>';
-   	
-   	$box_output .= '<label for="item_number">How Many Items To Show</label> ';
-   	$box_output .= '<input type="text" name="item_number" id="item_number" value="'.$item_number.'"/></br>';
-   	
-   	echo $box_output;
+	$box_output .= '<label for="item_number">How Many Items To Show</label> ';
+	$box_output .= '<input type="text" name="item_number" id="item_number" value="'.$item_number.'"/></br>';
+	
+	echo $box_output;
 }
 
 function page_meta_box($post) {
@@ -925,9 +826,9 @@ function page_meta_box($post) {
 	$box_output = '';
 	
 	$box_output .= '<label for="page_background">Page Background</label> ';
-   	$box_output .= '<input type="text" name="page_background" id="page_background" value="'.$page_background.'"/></br>';
-   	
-   	echo $box_output;
+	$box_output .= '<input type="text" name="page_background" id="page_background" value="'.$page_background.'"/></br>';
+	
+	echo $box_output;
 }
 
 function post_meta_box($post) {
@@ -950,13 +851,13 @@ function post_meta_box($post) {
 	
 	$box_output = '';
 
-   	$box_output .= '<label for="share">Share</label> ';
-   	$box_output .= '<input type="checkbox" id="share" name="share"'.$share.'/></br>';
-   	
-   	$box_output .= '<label for="full_width_asset">Full Width Asset:</label></br> ';
-   	$box_output .= '<textarea type="text" name="full_width_asset" id="full_width_asset" style="width: 100%; height: 200px;">'.$full_width_asset.'</textarea></br>';
-   	
-   	echo $box_output;
+	$box_output .= '<label for="share">Share</label> ';
+	$box_output .= '<input type="checkbox" id="share" name="share"'.$share.'/></br>';
+	
+	$box_output .= '<label for="full_width_asset">Full Width Asset:</label></br> ';
+	$box_output .= '<textarea type="text" name="full_width_asset" id="full_width_asset" style="width: 100%; height: 200px;">'.$full_width_asset.'</textarea></br>';
+	
+	echo $box_output;
 }
 
 function full_meta_box($post) {
@@ -971,211 +872,173 @@ function full_meta_box($post) {
 		$full_width_asset = '';
 	
 	$box_output = '';
-   	
-   	$box_output .= '<label for="full_width_asset">Shortcode:</label></br> ';
-   	$box_output .= '<textarea type="text" name="full_width_asset" id="full_width_asset" style="width: 100%; height: 200px;">'.$full_width_asset.'</textarea></br>';
-   	
-   	echo $box_output;
+	
+	$box_output .= '<label for="full_width_asset">Shortcode:</label></br> ';
+	$box_output .= '<textarea type="text" name="full_width_asset" id="full_width_asset" style="width: 100%; height: 200px;">'.$full_width_asset.'</textarea></br>';
+	
+	echo $box_output;
 }
 
 function save_portfolio_meta_box($post_id) {
 	
 	// Bail if we're doing an auto save  
-    if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return; 
+	if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return; 
  
-    // if our nonce isn't there, or we can't verify it, bail 
-    if( !isset( $_POST['portfolio_meta_box_nonce'] ) || !wp_verify_nonce( $_POST['portfolio_meta_box_nonce'], 'my_portfolio_meta_box_nonce' ) ) return; 
- 	
-    // if our current user can't edit this post, bail  
-    if( !current_user_can( 'edit_post' ) ) return;  
- 	 
-    // now we can actually save the data  
-    $allowed = array(  
-        'a' => array( // on allow a tags  
-            'href' => array() // and those anchors can only have href attribute  
-        )  
-    );  
-      
-    if(isset($_POST['full_width_asset']))  
-        update_post_meta( $post_id, 'full_width_asset', wp_kses($_POST['full_width_asset'], $allowed)); 
-        
-    if(isset($_POST['project_background']))  
-        update_post_meta( $post_id, 'project_background', wp_kses($_POST['project_background'], $allowed));
-    
-    if(isset($_POST['tools']))  
-        update_post_meta( $post_id, 'tools', wp_kses($_POST['tools'], $allowed)); 
-        
-    if(isset($_POST['copyright']))  
-        update_post_meta( $post_id, 'copyright', wp_kses($_POST['copyright'], $allowed));
-        
-    if(isset($_POST['client']))  
-        update_post_meta( $post_id, 'client', wp_kses($_POST['client'], $allowed));    
-        
-    if(isset($_POST['share']) && $_POST['share']) 
-    	$share = 'on';
-    else 
-     	$share = 'off';
-     	
-    update_post_meta( $post_id, 'share', $share );
-     	
-    if(isset($_POST['lightbox_enable']) && $_POST['lightbox_enable']) 
-    	$lightbox_enable = 'on';
-    else 
-     	$lightbox_enable = 'off';
-     	
-    update_post_meta( $post_id, 'lightbox_enable', $lightbox_enable);
-     	
-    if(isset($_POST['caption']))  
-        update_post_meta( $post_id, 'caption', wp_kses($_POST['caption'], $allowed)); 
-        
-    if(isset($_POST['lightbox_src']))  
-        update_post_meta( $post_id, 'lightbox_src', wp_kses($_POST['lightbox_src'], $allowed));
-     	
-//    --------NEW TEST
-
-if(isset($_POST['visualizzascheda']))  
-        update_post_meta( $post_id, 'visualizzascheda', wp_kses($_POST['visualizzascheda'], $allowed)); 
-
-if(isset($_POST['visualizzasocial']))  
-        update_post_meta( $post_id, 'visualizzasocial', wp_kses($_POST['visualizzasocial'], $allowed)); 
-
-
-if(isset($_POST['boatlenght']))  
-        update_post_meta( $post_id, 'boatlenght', wp_kses($_POST['boatlenght'], $allowed)); 
-        
-// if(isset($_POST['beam']))  
-//         update_post_meta( $post_id, 'beam', wp_kses($_POST['beam'], $allowed)); 
-
-if(isset($_POST['base']))  
-        update_post_meta( $post_id, 'base', wp_kses($_POST['base'], $allowed)); 
-
-        
-if(isset($_POST['builder']))  
-        update_post_meta( $post_id, 'builder', wp_kses($_POST['builder'], $allowed)); 
-        
-if(isset($_POST['model']))  
-        update_post_meta( $post_id, 'model', wp_kses($_POST['model'], $allowed)); 
-        
-if(isset($_POST['year']))  
-        update_post_meta( $post_id, 'year', wp_kses($_POST['year'], $allowed)); 
-        
-if(isset($_POST['guestcabins']))  
-        update_post_meta( $post_id, 'guestcabins', wp_kses($_POST['guestcabins'], $allowed)); 
-
-if(isset($_POST['crew']))  
-        update_post_meta( $post_id, 'crew', wp_kses($_POST['crew'], $allowed)); 
-        
-if(isset($_POST['weeklyrate']))  
-        update_post_meta( $post_id, 'weeklyrate', wp_kses($_POST['weeklyrate'], $allowed)); 
-
-
-
-// ------------------
-  	
-  	
-  	
+	// if our nonce isn't there, or we can't verify it, bail 
+	if( !isset( $_POST['portfolio_meta_box_nonce'] ) || !wp_verify_nonce( $_POST['portfolio_meta_box_nonce'], 'my_portfolio_meta_box_nonce' ) ) return; 
+	
+	// if our current user can't edit this post, bail  
+	if( !current_user_can( 'edit_post' ) ) return;  
+	 
+	// now we can actually save the data  
+	$allowed = array(  
+		'a' => array( // on allow a tags  
+			'href' => array() // and those anchors can only have href attribute  
+		)  
+	);  
+	  
+	if(isset($_POST['full_width_asset']))  
+		update_post_meta( $post_id, 'full_width_asset', wp_kses($_POST['full_width_asset'], $allowed)); 
+		
+	if(isset($_POST['project_background']))  
+		update_post_meta( $post_id, 'project_background', wp_kses($_POST['project_background'], $allowed));
+	
+	if(isset($_POST['tools']))  
+		update_post_meta( $post_id, 'tools', wp_kses($_POST['tools'], $allowed)); 
+		
+	if(isset($_POST['copyright']))  
+		update_post_meta( $post_id, 'copyright', wp_kses($_POST['copyright'], $allowed));
+		
+	if(isset($_POST['client']))  
+		update_post_meta( $post_id, 'client', wp_kses($_POST['client'], $allowed));    
+		
+	if(isset($_POST['share']) && $_POST['share']) 
+		$share = 'on';
+	else 
+		$share = 'off';
+		
+	update_post_meta( $post_id, 'share', $share );
+		
+	if(isset($_POST['lightbox_enable']) && $_POST['lightbox_enable']) 
+		$lightbox_enable = 'on';
+	else 
+		$lightbox_enable = 'off';
+		
+	update_post_meta( $post_id, 'lightbox_enable', $lightbox_enable);
+		
+	if(isset($_POST['caption']))  
+		update_post_meta( $post_id, 'caption', wp_kses($_POST['caption'], $allowed)); 
+		
+	if(isset($_POST['lightbox_src']))  
+		update_post_meta( $post_id, 'lightbox_src', wp_kses($_POST['lightbox_src'], $allowed));
+		
+   
+	
 }
 
 function save_post_meta_box($post_id) {
 	
 	// Bail if we're doing an auto save  
-    if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return; 
+	if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return; 
  
-    // if our nonce isn't there, or we can't verify it, bail 
-    if( !isset( $_POST['post_meta_box_nonce'] ) || !wp_verify_nonce( $_POST['post_meta_box_nonce'], 'my_post_meta_box_nonce' ) ) return; 
- 	
-    // if our current user can't edit this post, bail  
-    if( !current_user_can( 'edit_post' ) ) return;  
- 	 
-    // now we can actually save the data  
-    $allowed = array(  
-        'a' => array( // on allow a tags  
-            'href' => array() // and those anchors can only have href attribute  
-        )  
-    );  
-      
-    if(isset($_POST['full_width_asset']))  
-        update_post_meta( $post_id, 'full_width_asset', wp_kses($_POST['full_width_asset'], $allowed)); 
-        
-    if(isset($_POST['share']) && $_POST['share']) 
-    	$share = 'on';
-    else 
-     	$share = 'off';
-     	
-   	update_post_meta( $post_id, 'share', $share );
-  	
+	// if our nonce isn't there, or we can't verify it, bail 
+	if( !isset( $_POST['post_meta_box_nonce'] ) || !wp_verify_nonce( $_POST['post_meta_box_nonce'], 'my_post_meta_box_nonce' ) ) return; 
+	
+	// if our current user can't edit this post, bail  
+	if( !current_user_can( 'edit_post' ) ) return;  
+	 
+	// now we can actually save the data  
+	$allowed = array(  
+		'a' => array( // on allow a tags  
+			'href' => array() // and those anchors can only have href attribute  
+		)  
+	);  
+	  
+	if(isset($_POST['full_width_asset']))  
+		update_post_meta( $post_id, 'full_width_asset', wp_kses($_POST['full_width_asset'], $allowed)); 
+		
+	if(isset($_POST['share']) && $_POST['share']) 
+		$share = 'on';
+	else 
+		$share = 'off';
+		
+	update_post_meta( $post_id, 'share', $share );
+	
 }
 
 function save_page_meta_box($post_id) {
 	
 	// Bail if we're doing an auto save  
-    if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return; 
+	if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return; 
  
-    // if our nonce isn't there, or we can't verify it, bail 
-    if( !isset( $_POST['page_meta_box_nonce'] ) || !wp_verify_nonce( $_POST['page_meta_box_nonce'], 'my_page_meta_box_nonce' ) ) return; 
- 	
-    // if our current user can't edit this post, bail  
-    if( !current_user_can( 'edit_post' ) ) return;  
- 	 
-    // now we can actually save the data  
-    $allowed = array(  
-        'a' => array( // on allow a tags  
-            'href' => array() // and those anchors can only have href attribute  
-        )  
-    );  
-      
-    if(isset($_POST['page_background']))  
-        update_post_meta( $post_id, 'page_background', wp_kses($_POST['page_background'], $allowed)); 
-  	
+	// if our nonce isn't there, or we can't verify it, bail 
+	if( !isset( $_POST['page_meta_box_nonce'] ) || !wp_verify_nonce( $_POST['page_meta_box_nonce'], 'my_page_meta_box_nonce' ) ) return; 
+	
+	// if our current user can't edit this post, bail  
+	if( !current_user_can( 'edit_post' ) ) return;  
+	 
+	// now we can actually save the data  
+	$allowed = array(  
+		'a' => array( // on allow a tags  
+			'href' => array() // and those anchors can only have href attribute  
+		)  
+	);  
+	  
+	if(isset($_POST['page_background']))  
+		update_post_meta( $post_id, 'page_background', wp_kses($_POST['page_background'], $allowed)); 
+	
 }
 
 function save_full_meta_box($post_id) {
 	
 	// Bail if we're doing an auto save  
-    if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return; 
+	if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return; 
  
-    // if our nonce isn't there, or we can't verify it, bail 
-    if( !isset( $_POST['full_meta_box_nonce'] ) || !wp_verify_nonce( $_POST['full_meta_box_nonce'], 'my_full_meta_box_nonce' ) ) return; 
- 	
-    // if our current user can't edit this post, bail  
-    if( !current_user_can( 'edit_post' ) ) return;  
- 	 
-    // now we can actually save the data  
-    $allowed = array(  
-        'a' => array( // on allow a tags  
-            'href' => array() // and those anchors can only have href attribute  
-        )  
-    );  
-      
-    if(isset($_POST['full_width_asset']))  
-        update_post_meta( $post_id, 'full_width_asset', wp_kses($_POST['full_width_asset'], $allowed)); 
-  	
+	// if our nonce isn't there, or we can't verify it, bail 
+	if( !isset( $_POST['full_meta_box_nonce'] ) || !wp_verify_nonce( $_POST['full_meta_box_nonce'], 'my_full_meta_box_nonce' ) ) return; 
+	
+	// if our current user can't edit this post, bail  
+	if( !current_user_can( 'edit_post' ) ) return;  
+	 
+	// now we can actually save the data  
+	$allowed = array(  
+		'a' => array( // on allow a tags  
+			'href' => array() // and those anchors can only have href attribute  
+		)  
+	);  
+	  
+	if(isset($_POST['full_width_asset']))  
+		update_post_meta( $post_id, 'full_width_asset', wp_kses($_POST['full_width_asset'], $allowed)); 
+	
 }
 
 function save_portfolio_page_meta_box($post_id) {
 	
 	// Bail if we're doing an auto save  
-    if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return; 
+	if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return; 
  
-    // if our nonce isn't there, or we can't verify it, bail 
-    if( !isset( $_POST['portfolio_page_meta_box_nonce'] ) || !wp_verify_nonce( $_POST['portfolio_page_meta_box_nonce'], 'my_portfolio_page_meta_box_nonce' ) ) return; 
- 	
-    // if our current user can't edit this post, bail  
-    if( !current_user_can( 'edit_post' ) ) return;  
- 	 
-    // now we can actually save the data  
-    $allowed = array(  
-        'a' => array( // on allow a tags  
-            'href' => array() // and those anchors can only have href attribute  
-        )  
-    );  
-      
-    if(isset($_POST['thumb_width']))  
-        update_post_meta( $post_id, 'thumb_width', wp_kses($_POST['thumb_width'], $allowed)); 
-        
-    if(isset($_POST['item_number']))  
-        update_post_meta( $post_id, 'item_number', wp_kses($_POST['item_number'], $allowed));
-  	
+	// if our nonce isn't there, or we can't verify it, bail 
+	if( !isset( $_POST['portfolio_page_meta_box_nonce'] ) || !wp_verify_nonce( $_POST['portfolio_page_meta_box_nonce'], 'my_portfolio_page_meta_box_nonce' ) ) return; 
+	
+	// if our current user can't edit this post, bail  
+	if( !current_user_can( 'edit_post' ) ) return;  
+	 
+	// now we can actually save the data  
+	$allowed = array(  
+		'a' => array( // on allow a tags  
+			'href' => array() // and those anchors can only have href attribute  
+		)  
+	);
+	
+	if(isset($_POST['big_portfolio']) && $_POST['big_portfolio']) 
+		$big_portfolio = 'on';
+	else 
+		$big_portfolio = 'off';
+		
+	update_post_meta($post_id, 'big_portfolio', $big_portfolio);
+
+	if(isset($_POST['item_number']))  
+		update_post_meta($post_id, 'item_number', wp_kses($_POST['item_number'], $allowed));
 }
 
 add_action('save_post', 'save_portfolio_meta_box');

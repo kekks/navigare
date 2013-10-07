@@ -121,7 +121,7 @@ jQuery(document).ready(function($) {
 	});	
 	
 	// Create the dropdown base
-	$('<select id="nav-select"/>').appendTo('#header');
+	$('#slogan').after('<select id="nav-select"/>');
 	
 	// Populate dropdown with menu items
 	$('#nav a').each(function() {

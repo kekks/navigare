@@ -9,13 +9,16 @@
 	margin-right: 10px;
 }
 
-#portfolio-page-settings input,
 #post-settings input,
 #pages-settings input,
 #portfolio-page-settings input,
 #portfolio-project input {
 	width: 100%;
 	margin-bottom: 20px;
+}
+
+#portfolio-page-settings input[type=checkbox] {
+	width: auto;
 }
 
 #pages-settings input { margin-bottom: 0px; }
