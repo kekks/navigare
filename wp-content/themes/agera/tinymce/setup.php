@@ -28,7 +28,7 @@ $mpc_shortcodes['button'] = array(
 			'desc' => __('Button URL.', 'agera')
 		),
 		'background' => array(
-			'std' => '#F9625B',
+			'std' => '#2e3971',
 			'type' => 'text',
 			'title' => __('Background Color', 'agera'),
 			'desc' => __('Button background color.', 'agera')
@@ -40,7 +40,7 @@ $mpc_shortcodes['button'] = array(
 			'desc' => __('Specify text color.', 'agera')
 		),
 		'background_hover' => array(
-			'std' => '#F9625B',
+			'std' => '#2e3971',
 			'type' => 'text',
 			'title' => __('Background Hover Color', 'agera'),
 			'desc' => __('Button background color after hover.', 'agera')
