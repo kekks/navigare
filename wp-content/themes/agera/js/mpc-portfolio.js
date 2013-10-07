@@ -1,9 +1,33 @@
 /*-----------------------------------------------------------------------------------*/
 /*	Portfolio funtionality
 /*-----------------------------------------------------------------------------------*/
+var isInternetExplorer = false;
+var isHomePage = false;
+var advise;
+function checkInternetExplorer(){
+  if( isInternetExplorer && isHomePage){
+    return true;
+  }else{
+    return false;
+  }
+}
 
 jQuery.noConflict();
 jQuery(document).ready(function($) {
+  
+  if($("body").hasClass("home")) isHomePage = true;
+  if($("html").hasClass("lt-ie9")) isInternetExplorer = true;
+  
+  if(checkInternetExplorer()){
+        advise = $("<div/>",{"class":"tellexplorer"})
+        .append($("<div/>",{"class":"advice"}).html(
+          "<div class=\"trick\"><h3>Your browser is out of date.</h3><p>Some of the features found on this site are incompatible with this version of Internet Explorer. We reccomend the following browsers:</p> <p><a href=\"https://www.google.com/intl/en/chrome/browser/\" target=\"_blank\"><img src=\"http://my-yacht-charter.com/wp-content/uploads/2013/08/browser-icons-300x75.jpg\"></a></p> <button class='btn'>Proceed Anyway</button></div>"
+          ));
+        advise.appendTo($('body'));
+        advise.click(function(){
+          $(this).remove();
+        });
+      }
 
 	var colNum = 1,
 		blogColNum = 1,
@@ -87,7 +111,7 @@ jQuery(document).ready(function($) {
 	$('body').on('mouseenter', 'div.portfolio.no-flip .mpc-card', function() {
 		var $this = $(this);
 		$this.find('.back').css( { 'visibility': 'visible' });
-		$this.find('.front').stop().animate( { 'opacity' : 0 }, 1000, 'easeOutExpo' );
+		$this.find('.front').stop().animate( { 'opacity' : 0.8 }, 1000, 'easeOutExpo' );
 		$this.find('.back').stop().animate( { 'opacity' : 1 }, 1000, 'easeOutExpo' );
 	});
 	$('body').on('mouseleave', 'div.portfolio.no-flip .mpc-card', function() {

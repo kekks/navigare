@@ -28,6 +28,8 @@ else
 <style>
 	#content {
 		background: url(<?php echo $page_data['background']; ?>) no-repeat;
+	  background-size: cover;
+    background-position: middle center;
 	}
 </style>
 
