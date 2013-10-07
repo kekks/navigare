@@ -822,6 +822,34 @@ if(isset( $values['weeklyrate'] ))
 	
 	$box_output .= '<label for="project_background">Project Background</label> ';
 	$box_output .= '<input type="text" name="project_background" id="project_background" value="'.$project_background.'"/></br>';
+
+   	$box_output .= '<label for="visualizzascheda"style="color:red;">Inserire almeno un carattere per nascondere la scheda barca</label> ';	
+   	$box_output .= '<input type="text" name="visualizzascheda" id="visualizzascheda" value="'.$visualizzascheda.'"style="border:1px solid red;"/></br>';
+   
+   	$box_output .= '<label for="visualizzasocial"style="color:red;">Inserire almeno un carattere per nascondere i link share</label> ';	
+   	$box_output .= '<input type="text" name="visualizzasocial" id="visualizzasocial" value="'.$visualizzasocial.'"style="border:1px solid red;"/></br>';
+   	
+   	
+   	$box_output .= '<label for="boatlenght">Length</label> ';	
+   	$box_output .= '<input type="text" name="boatlenght" id="boatlenght" value="'.$boatlenght.'"/></br>';
+   	
+//    	$box_output .= '<label for="beam">Beam</label> ';	
+//    	$box_output .= '<input type="text" name="beam" id="beam" value="'.$beam.'"/></br>';
+   	
+   	$box_output .= '<label for="builder">Builder</label> ';	
+   	$box_output .= '<input type="text" name="builder" id="builder" value="'.$builder.'"/></br>';
+
+   	$box_output .= '<label for="model">Model</label> ';	
+   	$box_output .= '<input type="text" name="model" id="model" value="'.$model.'"/></br>';
+
+   	$box_output .= '<label for="year">Year</label> ';	
+   	$box_output .= '<input type="text" name="year" id="year" value="'.$year.'"/></br>';
+
+   	$box_output .= '<label for="guestcabins">Guest Cabins</label> ';	
+   	$box_output .= '<input type="text" name="guestcabins" id="guestcabins" value="'.$guestcabins.'"/></br>';
+
+   	$box_output .= '<label for="crew">Crew</label> ';	
+   	$box_output .= '<input type="text" name="crew" id="crew" value="'.$crew.'"/></br>';
 	
    	$box_output .= '<label for="base">Base</label> ';	
    	$box_output .= '<input type="text" name="base" id="base" value="'.$base.'"/></br>';
