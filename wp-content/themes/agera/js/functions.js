@@ -144,5 +144,16 @@ jQuery(document).ready(function($) {
 		
 	});
 });
+
+//added just for quickly fix info page
+
+$(".l-menu a").on("click",function(e){
+  var t = $(this);
+  var l = this.href.replace("#","");
+  //var newtop = $("#"+l).position().top;
+  var newtop = $("#"+l).offset().top;
+  $("#divtoscroll").scrollTop(newtop);
+  return false;
+});
 	
 	
