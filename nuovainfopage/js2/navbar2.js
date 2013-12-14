@@ -47,11 +47,11 @@ $(function() {
 	})
 	
 	
-	navigation_links.click( function(event) {
+	navigation_links.click( function(event) {  
 
 		$.scrollTo(
 			$(this).attr("href"),
-			{
+			{ 
 				duration: 200,
 				offset: { 'left':0, 'top':-0.15*$(window).height() }
 			}
