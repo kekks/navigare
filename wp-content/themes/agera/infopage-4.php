@@ -1,0 +1,479 @@
+<?php
+
+/*
+ * Template Name: Info3.0
+ * Description: A Page Template with a darker design.
+ */
+ 
+get_header();	
+$mp_option = agera_get_global_options();
+$page_id = get_the_ID();
+	
+$post_values = get_post_custom($page_id);
+if( isset($post_values['page_background'][0]) )
+	$page_data['background'] = $post_values['page_background'][0];
+else
+	$page_data['background'] = '';
+
+?>
+
+<style>
+	#content {
+		background: url(http://my-yacht-charter.com/wp-content/uploads/2013/06/background-about-us-resized.jpg);
+		background-size: cover;
+    background-position: bottom center;
+	}
+	
+	.infopage{
+	  opacity:0.9;
+	  overflow-x:hidden;
+	}	
+	
+  /* http://meyerweb.com/eric/tools/css/reset/
+     v2.0b1 | 201101
+     NOTE: WORK IN PROGRESS
+     USE WITH CAUTION AND TEST WITH ABANDON */
+
+  html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, figcaption, figure,
+  footer, header, hgroup, menu, nav, section, summary,
+  time, mark, audio, video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+  }
+  /* HTML5 display-role reset for older browsers */
+  article, aside, details, figcaption, figure,
+  footer, header, hgroup, menu, nav, section {
+      display: block;
+  }
+  body {
+      line-height: 1;
+  }
+  ol, ul {
+      list-style: none;
+  }
+  blockquote, q {
+      quotes: none;
+  }
+  blockquote:before, blockquote:after,
+  q:before, q:after {
+      content: '';
+      content: none;
+  }
+
+  /* remember to highlight inserts somehow! */
+  ins {
+      text-decoration: none;
+  }
+  del {
+      text-decoration: line-through;
+  }
+
+  table {
+      border-collapse: collapse;
+      border-spacing: 0;
+  }
+
+
+  /*base*/
+
+  body {
+  	font-size: 14px;
+  	font-family: Arial, sans-serif;
+  	color: #666;
+  	padding: 2em 0;
+  }
+
+  p {
+  	font-size: 1em;
+  	line-height: 1.5em;
+  	margin: 0 0 1.5em 0;
+  }
+
+  a {
+  	color: #40bfe8;
+  }
+
+  a:hover {
+  	text-decoration: none;
+  }
+
+  h1 {
+  	font-size: 6em;
+  	font-weight: bold;
+  	margin: 0 0 .3em 0;
+  	color: #2e3971;
+  	letter-spacing: -0.07em;
+  }
+
+  h3 {
+  	font-size: 18px;
+  	font-weight: bold;
+  	line-height: 1.3em;
+  	margin: 0 0 .5em 0;
+  	color: #ec9b00;
+  	letter-spacing: -0.07em;
+  	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  .wrapper { 
+  	position: relative; 
+  	width: 100%; 
+  }
+
+  section {
+  	padding: 0 2em 1em;
+  }
+
+
+  hr {
+  	width: 100%;
+  	display: block;
+  	height: 1px;
+  	border: none;
+  	outline: none;
+  	clear: both;
+  	background: #ccc;
+  	margin: 1em 0;
+
+  }
+
+  .nav-container { 
+    margin-bottom: 2em; 
+    width:20%;
+    margin-right:-2em;
+    float:left;
+    position:fixed;
+    overflow:hidden; 
+    }
+
+  nav {
+  	z-index: 42;
+  	position: relative;
+  }
+
+  nav li {
+  	display: block;
+  	list-style: none;
+  }
+
+  nav li a {
+  	text-decoration: none;
+  	color:#2e3971;
+    line-height:25px;
+    font-weight:bold;
+  }
+
+  nav li a:hover,
+  nav li a.selected {
+  	color: #ec9b00;
+  }
+
+
+  .erre {
+    width:80%;
+    float:right;
+    margin-bottom:300px;
+  }
+
+  .mpc-button {
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 14px;
+  display: inline-block;
+  margin: 0px 10px 10px 0px;
+  background: #2e3971!important;
+  color: #FFFFFF!important;
+  text-decoration:none;
+  }
+
+  .mpc-button a{text-decoration:none !important;}
+	
+</style>
+
+<div id="content" role="main">
+	<div class="page-container">
+		<div class="page-content infopage">
+
+
+       	<div class="wrapper">		
+       	  
+       	  <script>
+       	  $(function() {
+
+          	// Do our DOM lookups beforehand
+          	var nav_container = $(".nav-container");
+          	var nav = $("nav");
+
+          	var top_spacing = 15;
+          	var waypoint_offset = 50;
+
+            // nav_container.waypoint({
+            //  handler: function(event, direction) {
+            //    
+            //    if (direction == 'down') {
+            //    
+            //      nav_container.css({ 'height':nav.outerHeight() });    
+            //      nav.stop().addClass("sticky").css("top",-nav.outerHeight()).animate({"top":top_spacing});
+            //      
+            //    } else {
+            //    
+            //      nav_container.css({ 'height':'auto' });
+            //      nav.stop().addClass("sticky").css("top",-nav.outerHeight()).animate({"top":top_spacing});
+            //      
+            //    }
+            //    
+            //  },
+            //  offset: function() {
+            //    return -nav.outerHeight()-waypoint_offset;
+            //  }
+            // });
+
+          	var sections = $("section");
+          	var navigation_links = $("nav a");
+
+          	sections.waypoint({
+          		handler: function(event, direction) {
+
+          			var active_section;
+          			active_section = $(this);
+          			if (direction === "up") active_section = active_section.prev();
+
+          			var active_link = $('nav a[href="#' + active_section.attr("id") + '"]');
+          			navigation_links.removeClass("selected");
+          			active_link.addClass("selected");
+
+          		},
+          		offset: '25%'
+          	})
+
+
+            	navigation_links.click( function(event) {  
+
+          		$.scrollTo(
+          			$(this).attr("href"),
+          			{ 
+          				duration: 200,
+          				offset: { 'left':0, 'top':-0.15*$(window).height() }
+          			}
+          		);
+          	});
+
+
+          });
+       	  </script>
+
+      		<div class="nav-container">
+
+      			<nav>
+
+      				<ul>
+
+      					<li><a href="#chapter-1" class="selected">CHARTER TERMS</a></li>
+      					<li><a href="#chapter-2">A.P.A.</a></li>
+      					<li><a href="#chapter-3">PREFERENCE SHEET</a></li>
+      					<li><a href="#chapter-4">SECURITY DEPOSIT</a></li>
+      					<li><a href="#chapter-5">CHARTER RATES</a></li>
+      					<li><a href="#chapter-6">V.A.T.</a></li>
+      					<li><a href="#chapter-7">FEES</a></li>
+      					<li><a href="#chapter-8">PAYMENT TERMS</a></li>
+      					<li><a href="#chapter-9">INSURANCE</a></li>
+      					<li><a href="#chapter-10">GRATUITIES</a></li>
+      					<li><a href="#chapter-11">SMOKING</a></li>
+      					<li><a href="#chapter-12">MORE INFO</a></li>
+
+      				</ul>
+
+      				<div class="nav-left"></div>
+      				<div class="nav-right"></div>
+      				<div class="nav-above"></div>
+
+      			</nav>
+
+      		</div>
+
+          <div class="erre">
+
+      		<section id="chapter-1">
+      			<div class="r-content">
+
+      				<h3>WHAT IS INCLUDED OR NOT WHITIN THE CHARTER FEE</h3>
+      				<p>Please note that most of the above yachts operate on Mediterranean Yacht Brokers Association (MYBA) terms. The charter fee includes the hire cost of yacht and the crew only. That means that the yacht will be provided to the charterer with all necessary equipment, properly insured for marine risks and managed by a professional crew, whose cost is totally for the owner’s account. All other costs such as fuel and lubricating oils for the yacht, her tenders and motorized water toys; local taxes; ports dues (including water and electricity); custom clearance; personal laundry; all food and drinks provisions  and consumables for the charterer’s party; board telecommunication costs are at the Charterer's expense. Please note that, sometime, a yacht should be offered at different terms as described above. Our staff will provide full details of any charter terms that vary from standard MYBA Terms.</p>
+
+      			</div>
+
+
+      		</section>
+
+      		<section id="chapter-2">
+
+      			<div class="r-content">
+
+      				<h3>ADVANCE PROVISIONING ALLOWANCE</h3>
+      				<p>APA is a cash found that the client establish on the hands of the Captain, so that he can provide to pay all the expenses that by contract are on charge of the client (fuel, harbour fees, yacht provisioning, …). At the end of the charter, the captain will produce full accounts of all expenditure. Before to leave the yacht, you will either be refunded any money not used or asked to pay any additional costs not covered by the APA.  It is due at the time of the final charter payment. This sum is usually equivalent to 20/30% of the total charter fee, but may be different in some cases.</p>
+
+      			</div>
+
+      			<hr />
+
+      		</section>
+
+      		<section id="chapter-3">
+
+      			<div class="r-content">
+
+      				<h3>HOW SPECIFY THE FOOD AND DRINKS TO FIND ABOARD</h3>
+      				<p>Several weeks before you will board, we will ask you to complete a detailed questionnaire describing the preferences and special needs of all the members of your party, such as dietary or medial requirements, details of any allergies, and your sporting or entertainment requests. This will enable us and the crew of your chosen yacht to ensure that everything possible is done to make your charter an unforgettable experience.</p>
+
+      			</div>
+
+      			<hr />
+
+      		</section>
+
+      		<section id="chapter-4">
+
+      			<div class="r-content">
+
+      				<h3>SECURITY DEPOSIT</h3>
+      				<p>Some yachts or in some particular occasions, the charterer should be asked to pour to the owner a refundable security deposit to guarantee some little damages that the party should  procure on board. This amount is due at the time of the final charter payment and will be returned to the charterer, if any damages is done, at the end of the charter.</p>
+
+      			</div>
+
+      			<hr />
+
+      		</section>
+
+      		<section id="chapter-5">
+
+      			<div class="r-content">
+
+      				<h3>CHARTER RATES</h3>
+      				<p>Charter rates are quoted per week and one week is the minimum charter period accepted. Is possible sometime, that charters of less than seven days should be consider, in this case the charter fee will be calculated pro-rata against the weekly rate divided by six and multiplied by the number of charter days. Charters normally commence and terminate at the same hour on the first and last day. High season rates apply to the most requested charter periods, i.e.: July/August and Christmas/New Year, and are also normally applicable to all major events. Low season rates apply to all other periods.Please note that charter rates quoted on this site are believed to be correct but may be subject to change.
+      				  </p>
+
+      			</div>
+
+      			<hr />
+
+      		</section>
+
+      		<section id="chapter-6">
+
+      			<div class="r-content">
+
+      				<h3>V.A.T.</h3>
+      				<p>In European territorial waters VAT (Value Added Tax) is normally charged on the Charter Fee and rates can vary according to the place of embarkation and the chosen itinerary. Our staff will be able to advise you on the latest tax situation for any country you wish to visit.</p>
+
+      			</div>
+
+      			<hr />
+
+      		</section>
+
+
+      		<section id="chapter-7">
+
+      			<div class="r-content">
+
+      				<h3>DELIVERY AND REDELIVERY FEE</h3>
+      				<p>If your chosen cruising itinerary necessitates embarking or disembarking from a point other than the yacht’s home port, positioning charges (delivery/redelivery fees) may be required. These charges, if applicable, will be confirmed in advance and affirmed in the Charter Agreement, together with any taxes that may apply. 
+      				</p>
+
+      			</div>
+
+      			<hr />
+
+      		</section>
+
+      		<section id="chapter-8">
+
+      			<div class="r-content">
+
+      				<h3>PAYMENT TERMS</h3>
+      				<p>A down payment of 50% of the total charter fee is to be paid  by bank transfer on signature of the Charter Agreement. This confirms your booking. The remaining 50%, plus an Advance Provisioning Allowance, the Security Deposit (if requested) together with any taxes, delivery/redelivery fees and any additionally agreed charges, is payable by bank transfer five weeks before the charter commences.</p>
+
+      			</div>
+
+      			<hr />
+
+      		</section>
+
+      		<section id="chapter-9">
+
+      			<div class="r-content">
+
+      				<h3>PRIVATE AND PERSONAL INSURANCE</h3>
+      				<p>We recommend that charterers take out Cancellation and Curtailment Insurance. Additionally, all members of the charter party should be covered by Personal Accident and Medical Insurance, and their personal effects should be insured against theft, loss or damage. Other forms of insurance, such as Charterer’s Liability may also be prudent. Our staff will be pleased to assist with arranging any policy not covered by the basic Charter Agreement.</p>
+
+      			</div>
+
+      			<hr />
+
+      		</section>
+
+      		<section id="chapter-10">
+
+      			<div class="r-content">
+
+      				<h3>CREW GRATUITIES</h3>
+      				<p>Crew gratuities are discretionary, although it is customary for a charterer who has enjoyed  the service of the crew to extend them a gratuity. Crew gratuities are normally in the region of 10% of the charter fee, but can be adjusted up or down according to your level of satisfaction.
+                                       The best way to ensure that all crew members receive equal recognition is to entrust the distribution of gratuities to the captain. In this way, inconspicuous crew members such as engineers and culinary staff, who make an important contribution to your safety and enjoyment, will not be overlooked.</p>
+
+      			</div>
+
+      			<hr />
+
+      		</section>
+
+      		<section id="chapter-11">
+
+      			<div class="r-content">
+
+      				<h3>SMOKING ON BOARD THE YACHT</h3>
+      				<p>Smoking is not permitted inside most yachts. However please consult us for verification, as this policy may vary on certain yachts. For safety reasons, smoking in cabins and staterooms is prohibited on all yachts.</p>
+
+      			</div>
+
+      			<hr />
+
+      		</section>
+
+
+      		<section id="chapter-12">
+
+      			<div class="r-content">
+
+      				<h3>PLEASE CONTACT US FOR ANY ADDITIONAL INFO</h3>
+              <p>
+                <a class="mpc-button mpc-button-1" href="mailto:info@my-yacht-charter.com">Contact</a>
+              </p>
+
+      			</div>
+
+      			<hr />
+
+      		</section>
+       	</div>
+       	</div>
+
+  		</div>
+    </div> <!-- end page-content -->
+</div><!-- end content -->
+<?php get_footer(); ?>
+</body>
+</html>
