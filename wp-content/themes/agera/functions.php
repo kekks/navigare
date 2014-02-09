@@ -533,7 +533,7 @@ function agera_portfolio_columns($type, $page_data) {
 					<a href="<?php the_permalink(); ?>"><h2><?php the_title(); ?></h2></a>
 					<!-- Remove shortcodes from excerpts -->
 					<p class="mpc-excerpt" style="color:#ffffff;"><?php echo preg_replace('|\[(.+?)\](.+?\[/\\1\])?|s', '', agera_my_excerpt(get_the_content(''), 30));?></p>
-					<div class="post-excerpt-hidder" style="background: <?php echo $page_data['background']; ?> ;"></div>
+				  <!-- <div class="post-excerpt-hidder" style="background: <?php echo $page_data['background']; ?> ;"></div> -->
 					<?php if( function_exists('zilla_likes') ) zilla_likes(); ?>
 	
 					<?php if(isset($page_data['lightbox']) && $page_data['lightbox']) { 
@@ -574,7 +574,7 @@ function agera_portfolio_columns($type, $page_data) {
 						<a class="mpc-fancybox <?php echo $type; ?>" rel="<?php echo $page_data['gallery']; ?>" href="<?php echo $page_data['lightbox_src']; ?>" title="<?php echo $page_data['caption']; ?>"></a>
 					<?php } ?>
 
-					<a class="" href="<?php the_permalink(); ?>"> <p>Riga 577 function.php</p></a>
+          <!-- <a class="" href="<?php the_permalink(); ?>"> <p>Riga 577 function.php</p></a> -->
 
  
 					</a>
