@@ -25,7 +25,7 @@ switch($_SERVER["APPENV"])
      define('DB_USER', 'kekks');
 
      /** MySQL database password */
-     define('DB_PASSWORD', '1234567890');
+     define('DB_PASSWORD', '123456789');
 
      /** MySQL hostname */
      define('DB_HOST', '127.0.0.1');
