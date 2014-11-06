@@ -182,14 +182,14 @@ if(isset($post_meta['weeklyrate'][0]))
 				</div>
 			<?php } ?>
 			<div class="post-content">
-				<h2 class="mpc-post-title"><?php the_title(); ?></h2>
+				<h1 class="mpc-page-title-2"><?php the_title(); ?></h1>
 				<?php the_content(); ?>
 			</div>
 			<aside class="post-meta">
 				<div class="meta-content">
 <?php if($page_data['visualizzascheda'] == '') { ?>		
 <?php if($post_type == 'portfolio') { ?>	
-          <h5>Boat info:</h5>
+          <h2 class="boat_info">Boat info:</h2>
 <?php } ?>          
 					<ul>
 						<?php if($page_data['boatlenght'] != '') { ?>
@@ -269,7 +269,7 @@ if(isset($post_meta['weeklyrate'][0]))
 					
 	<?php } ?>
 <?php if($page_data['visualizzasocial'] == '') { ?>
-          <h5>Share:</h5>
+          <h2 class="boat_info">Share:</h2>
 <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style addthis_16x16_style">
 <a class="addthis_button_facebook"></a>
@@ -280,14 +280,25 @@ if(isset($post_meta['weeklyrate'][0]))
 </div>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-51a3c5dd5b9d5d7f"></script>
 <!-- AddThis Button END -->
+
+<div class="btn">	
+	
 	<?php } ?>
-					<!-- <span class="previous-container">
-					           <?php previous_post_link('<span class="previous-post"></span> %link', 'Previous', false) ;?>
+ 	<?php
+	$terms = wp_get_post_terms($post->ID,"portfolio_cat");
+ 	?>
+					<span class="previous-container">
+					           <?php previous_post_link('<span class="previous-post"></span> %link', 'Previous',  TRUE, ' ','portfolio_cat') ;?>
 					         </span>
 					         <span class="next-container">
-					           <?php next_post_link('%link <span class="next-post"></span>', 'Next', false) ;?>
-					         </span> -->
+					           <?php next_post_link('%link <span class="next-post"></span>', 'Next', TRUE, ' ','portfolio_cat') ;?>
+					         </span>
+
+</div>								 	
 				</div>
+
+		
+			
 			</aside>
 			<div class="post-comments">
 				<?php comments_template('', false); ?>

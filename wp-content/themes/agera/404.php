@@ -19,7 +19,7 @@ get_header();
 	<div id="content" class="page-404">				
 		<div class="posts-container left">
 			<article class="blog-post">
-            	<h2 class="mpc-page-title"><?php _e('Page 404', 'agera') ?></h2>         
+            	<h1 class="mpc-page-title-2"><?php _e('Page 404', 'agera') ?></h1>         
 					<p><?php _e( 'Sorry but you are looking for something that simply isn\'t there. ', 'agera' ); ?></p>
 			</article>
 		
