@@ -140,6 +140,7 @@ if(isset($post_meta['weeklyrate'][0]))
 			
 			if( isset($page_data['asset']) && $page_data['asset'] != '') { 
 				$asset = $page_data['asset'];
+				echo "fuck ".$asset;
 				$search = preg_match('/.(jpg|JPG|gif|GIF|png)/', $asset);
 				if($search == 1) {
 					$type = 'image';
@@ -178,6 +179,10 @@ if(isset($post_meta['weeklyrate'][0]))
 				} ?>
 			<?php } elseif (has_post_thumbnail()) {  ?>
 				<div class="post-image">
+					<?php
+					echo "cool"; 
+					?>
+					<?php echo $asset ?>
 					<?php the_post_thumbnail(); ?>		
 				</div>
 			<?php } ?>
