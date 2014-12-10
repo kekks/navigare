@@ -37,6 +37,7 @@ switch($_SERVER["APPENV"])
      define('DB_COLLATE', '');
   break;
   default:
+  case 'devi':
   case 'production':
     	define('DB_NAME', 'navdb');
 
