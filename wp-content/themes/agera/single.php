@@ -281,12 +281,14 @@ if(isset($post_meta['weeklyrate'][0]))
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-51a3c5dd5b9d5d7f"></script>
 <!-- AddThis Button END -->
 	<?php } ?>
-					<!-- <span class="previous-container">
-					           <?php previous_post_link('<span class="previous-post"></span> %link', 'Previous', false) ;?>
+<div id="port-nav">
+						<span class="previous-container">
+					           <?php previous_post_link('<span class="previous-post"></span> %link', 'Previous',  TRUE, ' ','portfolio_cat') ;?>
 					         </span>
 					         <span class="next-container">
-					           <?php next_post_link('%link <span class="next-post"></span>', 'Next', false) ;?>
-					         </span> -->
+					           <?php next_post_link('%link <span class="next-post"></span>', 'Next', TRUE, ' ','portfolio_cat') ;?>
+					         </span>
+</div>
 				</div>
 			</aside>
 			<div class="post-comments">
