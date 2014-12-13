@@ -19,6 +19,9 @@ $page_id = get_the_ID();
 ?>
 
 <style>
+
+	#header-container{z-index:100;}
+	
 	.wrapper {
 		width:100%;
 		height:89%;
