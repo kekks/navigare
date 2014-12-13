@@ -211,7 +211,7 @@ if(isset($post_meta['weeklyrate'][0]))
 						<?php } ?>
 						
 						<?php if($page_data['year'] != '') { ?>
-							<li><em>Year:</em> <?php echo $page_data['year']; ?></li>
+							<li><em>Built:</em> <?php echo $page_data['year']; ?></li>
 						<?php } ?>
 						
 						<?php if($page_data['guestcabins'] != '') { ?>
@@ -227,7 +227,7 @@ if(isset($post_meta['weeklyrate'][0]))
 						<?php } ?>
 						
 						<?php if($page_data['weeklyrate'] != '') { ?>
-							<li><em>Weekly rates:</em> <?php echo $page_data['weeklyrate']; ?></li>
+							<li><em>From:</em> <?php echo $page_data['weeklyrate']; ?></li>
 						<?php } ?>
 							
 						

@@ -842,7 +842,7 @@ if(isset( $values['weeklyrate'] ))
    	$box_output .= '<label for="model">Model</label> ';	
    	$box_output .= '<input type="text" name="model" id="model" value="'.$model.'"/></br>';
 
-   	$box_output .= '<label for="year">Year</label> ';	
+   	$box_output .= '<label for="year">Built</label> ';	
    	$box_output .= '<input type="text" name="year" id="year" value="'.$year.'"/></br>';
 
    	$box_output .= '<label for="guestcabins">Guest Cabins</label> ';	
@@ -854,7 +854,7 @@ if(isset( $values['weeklyrate'] ))
    	$box_output .= '<label for="base">Base</label> ';	
    	$box_output .= '<input type="text" name="base" id="base" value="'.$base.'"/></br>';
 
-   	$box_output .= '<label for="weeklyrate">Weekly rate</label> ';	
+   	$box_output .= '<label for="weeklyrate">From</label> ';	
    	$box_output .= '<input type="text" name="weeklyrate" id="weeklyrate" value="'.$weeklyrate.'"/></br>';
 
 // 
