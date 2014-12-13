@@ -182,14 +182,14 @@ if(isset($post_meta['weeklyrate'][0]))
 				</div>
 			<?php } ?>
 			<div class="post-content">
-				<h2 class="mpc-post-title"><?php the_title(); ?></h2>
+				<h1 class="mpc-post-title"><?php the_title(); ?></h1>
 				<?php the_content(); ?>
 			</div>
 			<aside class="post-meta">
 				<div class="meta-content">
 <?php if($page_data['visualizzascheda'] == '') { ?>		
 <?php if($post_type == 'portfolio') { ?>	
-          <h5>Boat info:</h5>
+          <h2>Boat info:</h2>
 <?php } ?>          
 					<ul>
 						<?php if($page_data['boatlenght'] != '') { ?>
@@ -269,7 +269,7 @@ if(isset($post_meta['weeklyrate'][0]))
 					
 	<?php } ?>
 <?php if($page_data['visualizzasocial'] == '') { ?>
-          <h5>Share:</h5>
+          <h2>Share:</h2>
 <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style addthis_16x16_style">
 <a class="addthis_button_facebook"></a>

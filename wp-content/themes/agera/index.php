@@ -117,9 +117,9 @@ else
 						&middot;
 						<?php  if( function_exists('zilla_likes') ) zilla_likes(); ?>
 						</small>
-						<h2 class="mpc-page-title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+						<h1 class="mpc-page-title" style="font-size:30px!important;line-height:30px!important;font-weight:100"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 							<?php the_title(); ?>
-						</a></h2>
+						</a></h1>
 						<div class="mpc-post-content">
 							<?php the_content('', TRUE, ''); ?>
 						</div>
