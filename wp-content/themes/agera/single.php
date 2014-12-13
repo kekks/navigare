@@ -282,12 +282,22 @@ if(isset($post_meta['weeklyrate'][0]))
 <!-- AddThis Button END -->
 	<?php } ?>
 <div id="port-nav">
-						<span class="previous-container">
+						<!-- <span class="previous-container">
 					           <?php previous_post_link('<span class="previous-post"></span> %link', 'Previous',  TRUE, ' ','portfolio_cat') ;?>
 					         </span>
 					         <span class="next-container">
 					           <?php next_post_link('%link <span class="next-post"></span>', 'Next', TRUE, ' ','portfolio_cat') ;?>
+					         </span> -->
+
+						<span class="previous-container">
+					           <?php previous_post_link('%link <span class="next-post"></span>', 'Next', TRUE, ' ','portfolio_cat') ;?>
 					         </span>
+					         <span class="next-container">
+					           <?php next_post_link('<span class="previous-post"></span> %link', 'Previous',  TRUE, ' ','portfolio_cat') ;?>
+					         </span>
+
+
+
 </div>
 				</div>
 			</aside>
