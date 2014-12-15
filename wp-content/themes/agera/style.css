@@ -112,7 +112,7 @@ i { font-style: italic!important; }
 	bottom:0;
 	width:100%;
 	visibility: visible;
-	background: #FFFFFF;
+	background-color: rgba(255, 255, 255, 0.9)!important;
 }
 
 h2, h3, h4, h5 {
@@ -127,11 +127,11 @@ h5 { font-size: 18px; }
 h4 { font-size: 22px; }
 h3 { font-size: 26px; }
 h2 { font-size: 30px; }
-h1 { font-size: 36px; font-weight: bold; }
+h1 { font-size: 36px; font-weight: bold;line-height:38px; }
 h1, h2, h3, h4, h5 { margin-bottom: 1em; }
 h3.mpc-middle { margin-top: 20px; margin-bottom: 30px; }
 
-a { text-decoration: none; }
+a { text-decoration: none;color:#3e435c; }
 
 strong { font-weight: bold; }
 
@@ -1269,7 +1269,7 @@ div.mpc-portfolio-categories ul li a:hover {
 	display: inline-block;
 	position: absolute;
 	right: 0px;
-	bottom: 48px;
+	bottom: 100px;
 	padding: 13px 13px 13px 13px;
 	background: white;
 	font-size: 18px;
@@ -1898,3 +1898,5 @@ vertical-align: baseline;
 	overflow: hidden;
 	/*width: 90%;*/
 }
+
+div.post-comments{display:none!important;}
