@@ -17,7 +17,7 @@ $mp_option = agera_get_global_options(); ?>
 	<ul class="social-icons">
 		<?php if ($mp_option['agera_facebook_icon'] == "1") { ?>
 		<li class="facebook">
-			<a href="<?php echo $mp_option['agera_facebook_link']; ?>">
+			<a href="<?php echo $mp_option['agera_facebook_link']; ?>"target="_blank">
 				<span class="icon"></span>
 				<span class="icon-color"></span>
 			</a>
@@ -25,7 +25,7 @@ $mp_option = agera_get_global_options(); ?>
 		<?php } ?>
 		<?php if ($mp_option['agera_twitter_icon'] == "1") { ?>
 		<li class="twitter">
-			<a href="<?php echo $mp_option['agera_twitter_link']; ?>">
+			<a href="<?php echo $mp_option['agera_twitter_link']; ?>"target="_blank">
 				<span class="icon"></span>
 				<span class="icon-color"></span>
 			</a>
@@ -33,7 +33,7 @@ $mp_option = agera_get_global_options(); ?>
 		<?php } ?>
 		<?php if ($mp_option['agera_google_icon'] == "1") { ?>
 		<li class="google">
-			<a href="<?php echo $mp_option['agera_google_link']; ?>">
+			<a href="<?php echo $mp_option['agera_google_link']; ?>"target="_blank">
 				<span class="icon"></span>
 				<span class="icon-color"></span>
 			</a>
@@ -41,7 +41,7 @@ $mp_option = agera_get_global_options(); ?>
 		<?php } ?>
 		<?php if ($mp_option['agera_rss_icon'] == "1") { ?>
 		<li class="rss">
-			<a href="<?php echo $mp_option['agera_rss_link']; ?>">
+			<a href="<?php echo $mp_option['agera_rss_link']; ?>"target="_blank">
 				<span class="icon"></span>
 				<span class="icon-color"></span>
 			</a>
@@ -49,7 +49,7 @@ $mp_option = agera_get_global_options(); ?>
 		<?php } ?>
 		<?php if ($mp_option['agera_dribbble_icon'] == "1") { ?>
 		<li class="dribbble">
-			<a href="<?php echo $mp_option['agera_dribbble_link']; ?>">
+			<a href="<?php echo $mp_option['agera_dribbble_link']; ?>"target="_blank">
 				<span class="icon"></span>
 				<span class="icon-color"></span>
 			</a>
@@ -57,7 +57,7 @@ $mp_option = agera_get_global_options(); ?>
 		<?php } ?>
 		<?php if ($mp_option['agera_vimeo_icon'] == "1") { ?>
 		<li class="vimeo">
-			<a href="<?php echo $mp_option['agera_vimeo_link']; ?>">
+			<a href="<?php echo $mp_option['agera_vimeo_link']; ?>"target="_blank">
 				<span class="icon"></span>
 				<span class="icon-color"></span>
 			</a>
@@ -65,7 +65,7 @@ $mp_option = agera_get_global_options(); ?>
 		<?php } ?>
 		<?php if ($mp_option['agera_forrst_icon'] == "1") { ?>
 		<li class="forrst">
-			<a href="<?php echo $mp_option['agera_forrst_link']; ?>">
+			<a href="<?php echo $mp_option['agera_forrst_link']; ?>"target="_blank">
 				<span class="icon"></span>
 				<span class="icon-color"></span>
 			</a>
@@ -73,7 +73,7 @@ $mp_option = agera_get_global_options(); ?>
 		<?php } ?>
 		<?php if ($mp_option['agera_flickr_icon'] == "1") { ?>
 		<li class="flickr">
-			<a href="<?php echo $mp_option['agera_flickr_link']; ?>">
+			<a href="<?php echo $mp_option['agera_flickr_link']; ?>"target="_blank">
 				<span class="icon"></span>
 				<span class="icon-color"></span>
 			</a>
@@ -81,7 +81,7 @@ $mp_option = agera_get_global_options(); ?>
 		<?php } ?>
 		<?php if ($mp_option['agera_deviant_icon'] == "1") { ?>
 		<li class="deviant">
-			<a href="<?php echo $mp_option['agera_deviant_link']; ?>">
+			<a href="<?php echo $mp_option['agera_deviant_link']; ?>"target="_blank">
 				<span class="icon"></span>
 				<span class="icon-color"></span>
 			</a>
@@ -89,7 +89,7 @@ $mp_option = agera_get_global_options(); ?>
 		<?php } ?>
 		<?php if ($mp_option['agera_digg_icon'] == "1") { ?>
 		<li class="digg">
-			<a href="<?php echo $mp_option['agera_digg_link']; ?>">
+			<a href="<?php echo $mp_option['agera_digg_link']; ?>"target="_blank">
 				<span class="icon"></span>
 				<span class="icon-color"></span>
 			</a>
@@ -97,7 +97,7 @@ $mp_option = agera_get_global_options(); ?>
 		<?php } ?>
 		<?php if ($mp_option['agera_linkedin_icon'] == "1") { ?>
 		<li class="linkedin">
-			<a href="<?php echo $mp_option['agera_linkedin_link']; ?>">
+			<a href="<?php echo $mp_option['agera_linkedin_link']; ?>"target="_blank">
 				<span class="icon"></span>
 				<span class="icon-color"></span>
 			</a>
@@ -105,7 +105,7 @@ $mp_option = agera_get_global_options(); ?>
 		<?php } ?>
 		<?php if ($mp_option['agera_picasa_icon'] == "1") { ?>
 		<li class="picaso">
-			<a href="<?php echo $mp_option['agera_picasa_link']; ?>">
+			<a href="<?php echo $mp_option['agera_picasa_link']; ?>"target="_blank">
 				<span class="icon"></span>
 				<span class="icon-color"></span>
 			</a>
@@ -113,7 +113,7 @@ $mp_option = agera_get_global_options(); ?>
 		<?php } ?>
 		<?php if ($mp_option['agera_stumble_icon'] == "1") { ?>
 		<li class="stumbel">
-			<a href="<?php echo $mp_option['agera_stumble_link']; ?>">
+			<a href="<?php echo $mp_option['agera_stumble_link']; ?>"target="_blank">
 				<span class="icon"></span>
 				<span class="icon-color"></span>
 			</a>
