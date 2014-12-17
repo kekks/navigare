@@ -23,11 +23,13 @@ $page_id = get_the_ID();
 	#header-container{z-index:100;}
 	
 	
+	
+	
 	@media all and (orientation: portrait) {
 	
 		.wrapper {
 			width:100%;
-			height:89%;
+			height:100%;
 			background:black;
 		}
 	
@@ -63,8 +65,7 @@ $page_id = get_the_ID();
 		  background-size: cover;
 	      background-position: center;
 		  overflow:hidden;
-	/*	  position:absolute;
-	*/	}
+	  }
 	
 	
 		.sail {
@@ -88,41 +89,13 @@ $page_id = get_the_ID();
 		}
 	
 	
-		.sail:hover .divbl{
-		  opacity:0.5;
-		  background:rbga(0,0,0,0.5);
-		  cursor:pointer;
-		  -webkit-transition: all 1s ease-in-out;
-	    -moz-transition: all 1s ease-in-out;
-	    -o-transition: all 1s ease-in-out;
-	    transition: all 1s ease-in-out;
-		}
+		.sail.divbl{display:none;}
 	
-		.sail:hover .testos{
-		  opacity:1;
-		  -webkit-transition: all 1s ease-in-out;
-	    -moz-transition: all 1s ease-in-out;
-	    -o-transition: all 1s ease-in-out;
-	    transition: all 1s ease-in-out;
-		}
+		.sail.testos{display:none;}
 	
-		.motor:hover .divbl{
-		  opacity:0.7;
-		  background:rbga(0,0,0,0.7);
-		  cursor:pointer;
-		  -webkit-transition: all 1s ease-in-out;
-	    -moz-transition: all 1s ease-in-out;
-	    -o-transition: all 1s ease-in-out;
-	    transition: all 1s ease-in-out;
-		}
+		.motor.divbl{display:none;}
 	
-		.motor:hover .testom{
-		  opacity:1;
-		  -webkit-transition: all 1s ease-in-out;
-	    -moz-transition: all 1s ease-in-out;
-	    -o-transition: all 1s ease-in-out;
-	    transition: all 1s ease-in-out;
-		}
+		.motor.testom{display:none;}
 	
 
   	
@@ -130,13 +103,14 @@ $page_id = get_the_ID();
 	    position:absolute;
 	    margin-bottom:0;
 	    color:white;
-	    height:15px;
+	    min-height:15px;
 	    width:100%;
 	    text-align:center;
 	    font-size:10px;
-	    bottom:30px;
+	    bottom:0px;
 	    z-index:3000;
 	    opacity:0.7;
+		background:black;
 	  }
   
 	  .legal a{
@@ -276,6 +250,8 @@ $page_id = get_the_ID();
     color:white !important;
   }
   
+  #mob-title {display:none !important;}
+  
 }
 
 
@@ -286,7 +262,9 @@ $page_id = get_the_ID();
 
 <div class="wrapper">
   <div class="motor">
-    <a href="http://my-yacht-charter.com/charter-motor-yacht">
+	      <a href="http://my-yacht-charter.com/charter-motor-yacht"><div id="mob-title">
+	      <h5>Charter a Motor Yacht</h5> 
+	  </div>
       <div class="divbl"></div>
       <div class="testom">
       <img src="http://my-yacht-charter.com/wp-content/uploads/2013/07/mot.png">
@@ -297,6 +275,10 @@ $page_id = get_the_ID();
 
   <div class="sail">
     <a href="http://my-yacht-charter.com/charter-sail-yacht">
+	  <div id="mob-title">
+	      <h5>Charter a Sail Yacht</h5> 
+	  </div>
+
       <div class="divbl"></div>
       <div class="testos">
       <img src="http://my-yacht-charter.com/wp-content/uploads/2013/07/sail.png">
