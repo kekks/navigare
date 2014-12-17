@@ -12,7 +12,7 @@ $mp_option = agera_get_global_options(); ?>
 </span>
 <footer id="agera_footer">
 	<p class="copyrights">
-		<?php echo $mp_option['agera_copyright_text']; ?>
+		<?php echo $mp_option['agera_copyright_text']; ?> <a href="mailto:info@my-yacht-charter.com">info@my-yacht-charter.com</a> - <a href="tel:+390706402523">+39 070 6402523</a>
 	</p>
 	<ul class="social-icons">
 		<?php if ($mp_option['agera_facebook_icon'] == "1") { ?>

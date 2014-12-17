@@ -1276,6 +1276,7 @@ div.mpc-portfolio-categories ul li a:hover {
 	opacity: 0.7;
 	cursor: pointer;
 	font-weight: bold;
+	z-index:999999;
 }
 
 #mpc_load_more:hover {
