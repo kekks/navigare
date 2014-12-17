@@ -21,6 +21,139 @@ $page_id = get_the_ID();
 <style>
 
 	#header-container{z-index:100;}
+	
+	
+	@media all and (orientation: portrait) {
+	
+		.wrapper {
+			width:100%;
+			height:89%;
+			background:black;
+		}
+	
+		.testom{
+	    margin-top:10%;
+	    z-index:20;
+	    position:relative;
+	    opacity:0;
+	    cursor:pointer;
+		}
+	
+		.testos{
+	    margin-top:10%;
+	    z-index:20;
+	    position:relative;
+	    opacity:0;
+	    cursor:pointer;
+		}
+	
+		h5 {
+	    color:white !important;
+	    text-shadow: 2px 2px 2px #000;
+	    font-size:30px;
+	    line-height:45px;
+	    font-weight:lighter;
+	  }
+
+		.motor {
+		  width:100%;
+		  height:47.5% !important;
+		  float:none;
+		  background-image: url(http://my-yacht-charter.com/wp-content/uploads/2013/06/17.jpg);
+		  background-size: cover;
+	      background-position: center;
+		  overflow:hidden;
+	/*	  position:absolute;
+	*/	}
+	
+	
+		.sail {
+	  	  width:100%;
+	  	  height:47.5%;
+		  float:none;
+		  background-image: url(http://my-yacht-charter.com/wp-content/uploads/2014/12/a-back-sail-vert.jpg);
+		  background-size: cover;
+	    background-position: center;
+	    overflow:hidden;
+	  }
+	
+		.divbl{
+		  width:100%;
+		  height:42.5%;
+		  background:black;
+		  z-index:8;
+		  position:absolute;
+		  opacity:0;
+		  background:rbga(0,0,0,0.0);
+		}
+	
+	
+		.sail:hover .divbl{
+		  opacity:0.5;
+		  background:rbga(0,0,0,0.5);
+		  cursor:pointer;
+		  -webkit-transition: all 1s ease-in-out;
+	    -moz-transition: all 1s ease-in-out;
+	    -o-transition: all 1s ease-in-out;
+	    transition: all 1s ease-in-out;
+		}
+	
+		.sail:hover .testos{
+		  opacity:1;
+		  -webkit-transition: all 1s ease-in-out;
+	    -moz-transition: all 1s ease-in-out;
+	    -o-transition: all 1s ease-in-out;
+	    transition: all 1s ease-in-out;
+		}
+	
+		.motor:hover .divbl{
+		  opacity:0.7;
+		  background:rbga(0,0,0,0.7);
+		  cursor:pointer;
+		  -webkit-transition: all 1s ease-in-out;
+	    -moz-transition: all 1s ease-in-out;
+	    -o-transition: all 1s ease-in-out;
+	    transition: all 1s ease-in-out;
+		}
+	
+		.motor:hover .testom{
+		  opacity:1;
+		  -webkit-transition: all 1s ease-in-out;
+	    -moz-transition: all 1s ease-in-out;
+	    -o-transition: all 1s ease-in-out;
+	    transition: all 1s ease-in-out;
+		}
+	
+
+  	
+	  .legal{
+	    position:absolute;
+	    margin-bottom:0;
+	    color:white;
+	    height:15px;
+	    width:100%;
+	    text-align:center;
+	    font-size:10px;
+	    bottom:30px;
+	    z-index:3000;
+	    opacity:0.7;
+	  }
+  
+	  .legal a{
+	    text-decoration:none !important;
+	    color:white !important;
+	  }
+  
+	  .testom img{display:none;}
+	  .testom h5{margin:auto;}
+  
+	  .testos img{display:none;}
+	  .testos h5{margin:auto;} 
+	  body {height:100% !important;}
+	}
+
+
+
 
 @media all and (orientation: landscape) {
 	
@@ -28,6 +161,7 @@ $page_id = get_the_ID();
 		width:100%;
 		height:89%;
 		background:white;
+		position:absolute;
 	}
 	
 	.testom{
@@ -56,13 +190,13 @@ $page_id = get_the_ID();
 
 	.motor {
 	  width:50%;
-	  height:95%;
+	  height:100%;
 	  float:left;
 	  background-image: url(http://my-yacht-charter.com/wp-content/uploads/2013/06/17.jpg);
     background-size: cover;
     background-position: bottom center;
 	  overflow:hidden;
-	  position:absolute;
+	  position:relative;
 	}
 	
 	.divbl{
@@ -78,7 +212,7 @@ $page_id = get_the_ID();
 	
 	.sail:hover .divbl{
 	  opacity:0.5;
-	  background:rbga(0,0,0,0.5);
+	  background:rbga(0,0,0,0.7);
 	  cursor:pointer;
 	  -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
@@ -121,6 +255,7 @@ $page_id = get_the_ID();
 	  background-size: cover;
     background-position: bottom center;
     overflow:hidden;
+	position:relative;
   }
   	
   .legal{
@@ -141,136 +276,6 @@ $page_id = get_the_ID();
     color:white !important;
   }
   
-}
-
-
-@media all and (orientation: portrait) {
-	
-	.wrapper {
-		width:100%;
-		height:89%;
-		background:black;
-	}
-	
-	.testom{
-    margin-top:10%;
-    z-index:20;
-    position:relative;
-    opacity:0;
-    cursor:pointer;
-	}
-	
-	.testos{
-    margin-top:10%;
-    z-index:20;
-    position:relative;
-    opacity:0;
-    cursor:pointer;
-	}
-	
-	h5 {
-    color:white !important;
-    text-shadow: 2px 2px 2px #000;
-    font-size:30px;
-    line-height:45px;
-    font-weight:lighter;
-  }
-
-	.motor {
-	  width:100%;
-	  height:47.5% !important;
-	  float:none;
-	  background-image: url(http://my-yacht-charter.com/wp-content/uploads/2013/06/17.jpg);
-	  background-size: cover;
-      background-position: center;
-	  overflow:hidden;
-/*	  position:absolute;
-*/	}
-	
-	
-	.sail {
-  	  width:100%;
-  	  height:47.5%;
-	  float:none;
-	  background-image: url(http://my-yacht-charter.com/wp-content/uploads/2014/12/a-back-sail-vert.jpg);
-	  background-size: cover;
-    background-position: center;
-    overflow:hidden;
-  }
-	
-	.divbl{
-	  width:100%;
-	  height:42.5%;
-	  background:black;
-	  z-index:8;
-	  position:absolute;
-	  opacity:0;
-	  background:rbga(0,0,0,0.0);
-	}
-	
-	
-	.sail:hover .divbl{
-	  opacity:0.5;
-	  background:rbga(0,0,0,0.5);
-	  cursor:pointer;
-	  -webkit-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
-	}
-	
-	.sail:hover .testos{
-	  opacity:1;
-	  -webkit-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
-	}
-	
-	.motor:hover .divbl{
-	  opacity:0.7;
-	  background:rbga(0,0,0,0.7);
-	  cursor:pointer;
-	  -webkit-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
-	}
-	
-	.motor:hover .testom{
-	  opacity:1;
-	  -webkit-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
-	}
-	
-
-  	
-  .legal{
-    position:absolute;
-    margin-bottom:0;
-    color:white;
-    height:15px;
-    width:100%;
-    text-align:center;
-    font-size:10px;
-    bottom:30px;
-    z-index:3000;
-    opacity:0.7;
-  }
-  
-  .legal a{
-    text-decoration:none !important;
-    color:white !important;
-  }
-  
-  .testom img{display:none;}
-  .testom h5{margin:auto;}
-  
-  .testos img{display:none;}
-  .testos h5{margin:auto;} 
-  body {height:100% !important;}
 }
 
 
@@ -292,7 +297,6 @@ $page_id = get_the_ID();
 
   <div class="sail">
     <a href="http://my-yacht-charter.com/charter-sail-yacht">
-      <div class="divbl"></div>
       <div class="divbl"></div>
       <div class="testos">
       <img src="http://my-yacht-charter.com/wp-content/uploads/2013/07/sail.png">
