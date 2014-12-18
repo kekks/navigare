@@ -800,6 +800,15 @@ if(isset( $values['weeklyrate'] ))
 		
 //  ----------- END ADDED BOAT INFO
 
+//  ----------- ADDED PDF BOTTON
+
+if(isset( $values['pdfbutton'] ))
+		$pdfbutton =  esc_attr( $values['pdfbutton'][0] );
+	else 
+		$pdfbutton = "";
+
+//  ----------- END ADDED PDF BOTTON
+
 	if(isset($values['lightbox_enable'] ))
 		$lightbox_enable =  esc_attr( $values['lightbox_enable'][0] );
 	else 
@@ -856,6 +865,9 @@ if(isset( $values['weeklyrate'] ))
 
    	$box_output .= '<label for="weeklyrate">From</label> ';	
    	$box_output .= '<input type="text" name="weeklyrate" id="weeklyrate" value="'.$weeklyrate.'"/></br>';
+	
+	$box_output .= '<label for="pdfbutton">Download Pdf</label> ';
+	$box_output .= '<input type="text" name="pdfbutton" id="pdfbutton" value="'.$pdfbutton.'"/></br>';
 
 // 
 //    	
@@ -1076,7 +1088,13 @@ if(isset($_POST['weeklyrate']))
 
 // ------------------
   	
-  	
+
+if(isset($_POST['pdfbutton']))  
+        update_post_meta( $post_id, 'pdfbutton', wp_kses($_POST['pdfbutton'], $allowed)); 
+
+
+
+// ------------------
 	
 }
 

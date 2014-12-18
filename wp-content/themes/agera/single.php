@@ -127,6 +127,12 @@ if(isset($post_meta['weeklyrate'][0]))
 			$page_data['weeklyrate'] = $post_meta['weeklyrate'][0]; 
 		else
 			$page_data['weeklyrate'] = '';
+		
+		
+if(isset($post_meta['pdfbutton'][0]))	
+					$page_data['pdfbutton'] = $post_meta['pdfbutton'][0]; 
+				else
+					$page_data['pdfbutton'] = '';
 						
 
 // ------------END CUSTOM
@@ -266,6 +272,11 @@ if(isset($post_meta['weeklyrate'][0]))
 <?php if($post_type == 'portfolio') { ?>					
 <p><a class="mpc-button mpc-button-1" href="mailto:info@my-yacht-charter.com?Subject=Info about <?php the_title(); ?>" style="color:white !important;margin-top:10px;">Ask for availability</a></p>
 <?php } ?>
+
+<?php if($page_data['pdfbutton'] != '') { ?>
+	<p><a class="mpc-button mpc-button-1" href="<?php echo $page_data['pdfbutton']; ?>"  style="color:white !important;margin-top:10px;" target="_blank">Download pdf</a></p>
+<?php } ?>
+
 					
 	<?php } ?>
 <?php if($page_data['visualizzasocial'] == '') { ?>

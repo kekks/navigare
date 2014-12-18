@@ -443,6 +443,7 @@ div.posts-container .post-content {
 	width: 66%;
 	margin: 33px 3% 33px 4.5%;
 	float: left;
+	margin-bottom:100px;
 }
 
 div.posts-container .mpc-post {
