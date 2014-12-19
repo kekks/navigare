@@ -742,15 +742,22 @@ function portfolio_meta_box($post) {
 
 
 //  -------------ADDED BOAT INFO 
-if(isset( $values['visualizzascheda'] ))
+
+
+	if(isset($values['visualizzascheda'] ))
 		$visualizzascheda =  esc_attr( $values['visualizzascheda'][0] );
 	else 
-		$visualizzascheda = "";
+		$visualizzascheda = "off";	
 		
-if(isset( $values['visualizzasocial'] ))
+	$visualizzascheda = checked($visualizzascheda, 'on', false);
+	
+	if(isset($values['visualizzasocial'] ))
 		$visualizzasocial =  esc_attr( $values['visualizzasocial'][0] );
 	else 
-		$visualizzasocial = "";
+		$visualizzasocial = "off";	
+		
+	$visualizzasocial = checked($visualizzasocial, 'on', false);
+
 		
 if(isset( $values['boatlenght'] ))
 		$boatlenght =  esc_attr( $values['boatlenght'][0] );
@@ -832,11 +839,11 @@ if(isset( $values['pdfbutton'] ))
 	$box_output .= '<label for="project_background">Project Background</label> ';
 	$box_output .= '<input type="text" name="project_background" id="project_background" value="'.$project_background.'"/></br>';
 
-   	$box_output .= '<label for="visualizzascheda"style="color:red;">Inserire almeno un carattere per nascondere la scheda barca</label> ';	
-   	$box_output .= '<input type="text" name="visualizzascheda" id="visualizzascheda" value="'.$visualizzascheda.'"style="border:1px solid red;"/></br>';
+   	$box_output .= '<label for="visualizzascheda">Nascondere scheda barca?</label> ';	
+   	$box_output .= '<input type="checkbox" name="visualizzascheda" id="visualizzascheda"'.$visualizzascheda.'></br>';
    
-   	$box_output .= '<label for="visualizzasocial"style="color:red;">Inserire almeno un carattere per nascondere i link share</label> ';	
-   	$box_output .= '<input type="text" name="visualizzasocial" id="visualizzasocial" value="'.$visualizzasocial.'"style="border:1px solid red;"/></br>';
+   	$box_output .= '<label for="visualizzasocial">Nascondere link share?</label> ';	
+   	$box_output .= '<input type="checkbox" name="visualizzasocial" id="visualizzasocial"'.$visualizzasocial.'></br>';
    	
    	
    	$box_output .= '<label for="boatlenght">Length</label> ';	
@@ -1050,11 +1057,24 @@ function save_portfolio_meta_box($post_id) {
 		
    
 
-if(isset($_POST['visualizzascheda']))  
-        update_post_meta( $post_id, 'visualizzascheda', wp_kses($_POST['visualizzascheda'], $allowed)); 
+if(isset($_POST['visualizzascheda']) && $_POST['visualizzascheda']) 
+	$visualizzascheda = 'on';
+else 
+	$visualizzascheda = 'off';
+	
+update_post_meta( $post_id, 'visualizzascheda', $visualizzascheda);
+
 
 if(isset($_POST['visualizzasocial']))  
         update_post_meta( $post_id, 'visualizzasocial', wp_kses($_POST['visualizzasocial'], $allowed)); 
+
+if(isset($_POST['visualizzasocial']) && $_POST['visualizzasocial']) 
+	$visualizzasocial = 'on';
+else 
+	$visualizzasocial = 'off';
+	
+update_post_meta( $post_id, 'visualizzasocial', $visualizzasocial);
+
 
 
 if(isset($_POST['boatlenght']))  

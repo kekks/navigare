@@ -68,6 +68,7 @@ if(have_posts()) {
 
 //  -----------------CUSTOM
 
+
 if(isset($post_meta['visualizzascheda'][0]))	
 			$page_data['visualizzascheda'] = $post_meta['visualizzascheda'][0]; 
 		else
@@ -192,8 +193,8 @@ if(isset($post_meta['pdfbutton'][0]))
 				<?php the_content(); ?>
 			</div>
 			<aside class="post-meta">
-				<div class="meta-content">
-<?php if($page_data['visualizzascheda'] == '') { ?>		
+				<div class="met a-content">
+<?php if($page_data['visualizzascheda'] == 'off' && $page_data['visualizzascheda'] != 'on') { ?>		
 <?php if($post_type == 'portfolio') { ?>	
           <h2>Boat info:</h2>
 <?php } ?>          
@@ -280,7 +281,8 @@ if(isset($post_meta['pdfbutton'][0]))
 
 					
 	<?php } ?>
-<?php if($page_data['visualizzasocial'] == '') { ?>
+<?php if($page_data['visualizzasocial'] == 'off' && $page_data['visualizzasocial'] != 'on') { ?>
+
           <h2>Share:</h2>
 <!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style addthis_16x16_style">
