@@ -744,7 +744,15 @@ function portfolio_meta_box($post) {
 //  -------------ADDED BOAT INFO 
 
 
-	if(isset($values['visualizzascheda'] ))
+if(isset($values['authentic_boat'] ))
+	$authentic_boat =  esc_attr( $values['authentic_boat'][0] );
+else 
+	$authentic_boat = "off";	
+	
+$authentic_boat = checked($authentic_boat, 'on', false);
+  
+  
+  if(isset($values['visualizzascheda'] ))
 		$visualizzascheda =  esc_attr( $values['visualizzascheda'][0] );
 	else 
 		$visualizzascheda = "off";	
@@ -836,16 +844,20 @@ if(isset( $values['pdfbutton'] ))
 	
 	$box_output = '';
 	
-	$box_output .= '<label for="project_background">Project Background</label> ';
-	$box_output .= '<input type="text" name="project_background" id="project_background" value="'.$project_background.'"/></br>';
 
-   	$box_output .= '<label for="visualizzascheda">Nascondere scheda barca?</label> ';	
+
+ 	$box_output .= '<label for="authentic_boat">Barca è certificata?</label> ';	
+ 	$box_output .= '<input type="checkbox" name="authentic_boat" id="authentic_boat"'.$authentic_boat.'></br>';
+    
+    $box_output .= '<label for="visualizzascheda">Nascondere scheda barca?</label> ';	
    	$box_output .= '<input type="checkbox" name="visualizzascheda" id="visualizzascheda"'.$visualizzascheda.'></br>';
    
    	$box_output .= '<label for="visualizzasocial">Nascondere link share?</label> ';	
    	$box_output .= '<input type="checkbox" name="visualizzasocial" id="visualizzasocial"'.$visualizzasocial.'></br>';
    	
-   	
+  	$box_output .= '<label for="project_background">Project Background</label> ';
+  	$box_output .= '<input type="text" name="project_background" id="project_background" value="'.$project_background.'"/></br>';
+    
    	$box_output .= '<label for="boatlenght">Length</label> ';	
    	$box_output .= '<input type="text" name="boatlenght" id="boatlenght" value="'.$boatlenght.'"/></br>';
    	
@@ -1055,7 +1067,16 @@ function save_portfolio_meta_box($post_id) {
 	if(isset($_POST['lightbox_src']))  
 		update_post_meta( $post_id, 'lightbox_src', wp_kses($_POST['lightbox_src'], $allowed));
 		
-   
+  
+    
+	   if(isset($_POST['authentic_boat']) && $_POST['authentic_boat']) 
+	   	$authentic_boat = 'on';
+	   else 
+	   	$authentic_boat = 'off';
+	
+	   update_post_meta( $post_id, 'authentic_boat', $authentic_boat);
+
+
 
 if(isset($_POST['visualizzascheda']) && $_POST['visualizzascheda']) 
 	$visualizzascheda = 'on';

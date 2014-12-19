@@ -69,6 +69,11 @@ if(have_posts()) {
 //  -----------------CUSTOM
 
 
+	if(isset($post_meta['authentic_boat'][0]))	
+				$page_data['authentic_boat'] = $post_meta['authentic_boat'][0]; 
+			else
+				$page_data['authentic_boat'] = '';
+
 if(isset($post_meta['visualizzascheda'][0]))	
 			$page_data['visualizzascheda'] = $post_meta['visualizzascheda'][0]; 
 		else
@@ -193,9 +198,16 @@ if(isset($post_meta['pdfbutton'][0]))
 				<?php the_content(); ?>
 			</div>
 			<aside class="post-meta">
-				<div class="met a-content">
+				<div class="meta-content">
 <?php if($page_data['visualizzascheda'] == 'off' && $page_data['visualizzascheda'] != 'on') { ?>		
-<?php if($post_type == 'portfolio') { ?>	
+<?php if($post_type == 'portfolio') { ?>
+
+<?php if($page_data['authentic_boat'] == 'on' && $page_data['authentic_boat'] != 'off'):?>
+		
+		<div class="certified_boat">Bollo di autencitià</div>
+			
+<?php endif; ?>          		
+
           <h2>Boat info:</h2>
 <?php } ?>          
 
