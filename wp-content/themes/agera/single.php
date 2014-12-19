@@ -197,6 +197,7 @@ if(isset($post_meta['pdfbutton'][0]))
 <?php if($post_type == 'portfolio') { ?>	
           <h2>Boat info:</h2>
 <?php } ?>          
+
 					<ul>
 						<?php if($page_data['boatlenght'] != '') { ?>
 							<li><em>Length:</em> <?php echo $page_data['boatlenght']; ?></li>

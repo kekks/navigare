@@ -868,6 +868,7 @@ if(isset( $values['pdfbutton'] ))
 	
 	$box_output .= '<label for="pdfbutton">Download Pdf</label> ';
 	$box_output .= '<input type="text" name="pdfbutton" id="pdfbutton" value="'.$pdfbutton.'"/></br>';
+	
 
 // 
 //    	

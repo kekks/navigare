@@ -146,9 +146,10 @@ function login_header( $title = 'Log In', $message = '', $wp_error = '' ) {
 
 	?>
 	</head>
-	<body class="login <?php echo esc_attr( implode( ' ', $classes ) ); ?>">
-	<div id="login">
-		<h1><a href="<?php echo esc_url( $login_header_url ); ?>" title="<?php echo esc_attr( $login_header_title ); ?>" tabindex="-1"><?php bloginfo( 'name' ); ?></a></h1>
+	<body class="login <?php echo esc_attr( implode( ' ', $classes ) ); ?>" style="background-image:url(http://my-yacht-charter.com/wp-content/uploads/2013/06/17.jpg);background-size: cover;">
+	<div id="login" style:"background-color:rgba(250,250,250,.6) !important;">
+		<!-- <h1><a href="<?php echo esc_url( $login_header_url ); ?>" title="<?php echo esc_attr( $login_header_title ); ?>" tabindex="-1"><?php bloginfo( 'name' ); ?></a></h1> -->
+		<img src="http://my-yacht-charter.com/wp-content/uploads/2014/12/320.png">
 	<?php
 
 	unset( $login_header_url, $login_header_title );
