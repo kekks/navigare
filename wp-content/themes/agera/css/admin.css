@@ -35,7 +35,7 @@
 
 .ncolor_selector .rosso, .corner-ribbon.rosso { background-color:red;}
 .ncolor_selector .blu, .corner-ribbon.blu { background-color:blue;}
-.ncolor_selector .giallo, .corner-ribbon.giallo { background-color:yellow;}
+.ncolor_selector .giallo, .corner-ribbon.giallo { background-color:yellow; color:black;}
 .ncolor_selector .verde, .corner-ribbon.verde { background-color:green;}
 .ncolor_selector .arancione, .corner-ribbon.arancione { background-color:orange;}
 .ncolor_selector .nero, .corner-ribbon.nero { background-color:black;}
