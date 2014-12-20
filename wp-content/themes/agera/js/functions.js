@@ -143,17 +143,18 @@ jQuery(document).ready(function($) {
 		window.location = $(this).find("option:selected").val();
 		
 	});
-});
+  
+  // all jquery must be inside of the ready method, otherwise its throws errors!!!
+  //added just for quickly fix info page
 
-//added just for quickly fix info page
-
-$(".l-menu a").on("click",function(e){
-  var t = $(this);
-  var l = this.href.replace("#","");
-  //var newtop = $("#"+l).position().top;
-  var newtop = $("#"+l).offset().top;
-  $("#divtoscroll").scrollTop(newtop);
-  return false;
+  $(".l-menu a").on("click",function(e){
+    var t = $(this);
+    var l = this.href.replace("#","");
+    //var newtop = $("#"+l).position().top;
+    var newtop = $("#"+l).offset().top;
+    $("#divtoscroll").scrollTop(newtop);
+    return false;
+  });
+  
+  
 });
-	
-	
