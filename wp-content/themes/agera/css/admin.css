@@ -29,3 +29,13 @@
 	width: auto;
 	margin-top: 3px;
 }
+
+.ncolor_selector option { padding:3px;}
+.ncolor_selector option span { display:inline-block; width:10px; height:10px;}
+
+.ncolor_selector .rosso, .corner-ribbon.rosso { background-color:red;}
+.ncolor_selector .blu, .corner-ribbon.blu { background-color:blue;}
+.ncolor_selector .giallo, .corner-ribbon.giallo { background-color:yellow;}
+.ncolor_selector .verde, .corner-ribbon.verde { background-color:green;}
+.ncolor_selector .arancione, .corner-ribbon.arancione { background-color:orange;}
+.ncolor_selector .nero, .corner-ribbon.nero { background-color:black;}

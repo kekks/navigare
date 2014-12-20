@@ -84,6 +84,19 @@ if(isset($post_meta['visualizzasocial'][0]))
 		else
 			$page_data['visualizzasocial'] = '';			
 
+
+		if(isset($post_meta['promo_message'][0]))	
+					$page_data['promo_message'] = $post_meta['promo_message'][0]; 
+				else
+					$page_data['promo_message'] = '';
+				
+				
+				if(isset($post_meta['promo_color'][0]))	
+							$page_data['promo_color'] = $post_meta['promo_color'][0]; 
+						else
+							$page_data['promo_color'] = '';				
+
+
 if(isset($post_meta['testohome'][0]))	
 			$page_data['testohome'] = $post_meta['testohome'][0]; 
 		else
@@ -190,7 +203,12 @@ if(isset($post_meta['pdfbutton'][0]))
 				} ?>
 			<?php } elseif (has_post_thumbnail()) {  ?>
 				<div class="post-image">
-					<?php the_post_thumbnail(); ?>		
+					<?php the_post_thumbnail(); ?>	
+					
+					<?php if($page_data['promo_message'] != ""):?>
+						<div class="corner-ribbon top-right <?php echo $page_data['promo_color'];?>"><?php echo $page_data['promo_message'];?></div>
+					<?php endif;?>
+					
 				</div>
 			<?php } ?>
 			<div class="post-content">

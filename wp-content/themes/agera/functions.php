@@ -580,6 +580,9 @@ function agera_portfolio_columns($type, $page_data) {
 					</a>
 				</div>
 			</div>
+			<?php if($page_data['promo_message'] != ""):?>
+				<div class="corner-ribbon top-right thin <?php echo $page_data['promo_color'];?>"><?php echo $page_data['promo_message'];?></div>
+			<?php endif;?>
 		</div><!-- portfolio_item_thumb -->
 	<?php } 
 }
@@ -766,7 +769,18 @@ $authentic_boat = checked($authentic_boat, 'on', false);
 		
 	$visualizzasocial = checked($visualizzasocial, 'on', false);
 
+
+  if(isset( $values['promo_message'] ))
+  		$promo_message =  esc_attr( $values['promo_message'][0] );
+  	else 
+  		$promo_message = "";
+    
+    if(isset( $values['promo_color'] ))
+    		$promo_color =  esc_attr( $values['promo_color'][0] );
+    	else 
+    		$promo_color = "";
 		
+
 if(isset( $values['boatlenght'] ))
 		$boatlenght =  esc_attr( $values['boatlenght'][0] );
 	else 
@@ -855,7 +869,21 @@ if(isset( $values['pdfbutton'] ))
    	$box_output .= '<label for="visualizzasocial">Nascondere link share?</label> ';	
    	$box_output .= '<input type="checkbox" name="visualizzasocial" id="visualizzasocial"'.$visualizzasocial.'></br>';
    	
-  	$box_output .= '<label for="project_background">Project Background</label> ';
+  	$box_output .= '<label for="promo_message">Testo Promo</label> ';
+  	$box_output .= '<input type="text" name="promo_message" id="promo_message" value="'.$promo_message.'"/></br>';
+    
+  	$box_output .= '<label for="promo_color">Colore banda promo</label> ';
+    $box_output .= '<select name="promo_color" class="ncolor_selector" id="promo_color">';
+    $color_classes = array("rosso","blu","giallo","verde","arancione","nero");
+    
+    //$box_output .= '<option class="empty" value="">-----</option>'; // possiamo lasciare vuoto questo ma c'è un rischio se poi non scegli un colore.
+    foreach($color_classes as $color):
+            $box_output .= '<option class="'.$color.'" value="'.$color.'"'.selected( $promo_color, $color ).'>'.ucfirst($color).'</option>';
+    endforeach;
+
+    $box_output .= '</select><br><br>';
+    
+    $box_output .= '<label for="project_background">Project Background</label> ';
   	$box_output .= '<input type="text" name="project_background" id="project_background" value="'.$project_background.'"/></br>';
     
    	$box_output .= '<label for="boatlenght">Length</label> ';	
@@ -1096,6 +1124,12 @@ else
 	
 update_post_meta( $post_id, 'visualizzasocial', $visualizzasocial);
 
+
+if(isset($_POST['promo_message']))  
+        update_post_meta( $post_id, 'promo_message', wp_kses($_POST['promo_message'], $allowed)); 
+
+if(isset($_POST['promo_color']))  
+        update_post_meta( $post_id, 'promo_color', wp_kses($_POST['promo_color'], $allowed)); 
 
 
 if(isset($_POST['boatlenght']))  

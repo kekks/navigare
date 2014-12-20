@@ -102,6 +102,18 @@ else
 				else
 					$page_data['gallery'] = '';
 			}
+      
+  		if(isset($post_meta['promo_message'][0]))	
+  					$page_data['promo_message'] = $post_meta['promo_message'][0]; 
+  				else
+  					$page_data['promo_message'] = '';
+				
+				
+  				if(isset($post_meta['promo_color'][0]))	
+  							$page_data['promo_color'] = $post_meta['promo_color'][0]; 
+  						else
+  							$page_data['promo_color'] = '';	
+              
 
 			$categories = get_the_terms($post->ID, 'portfolio_cat');
 			$category_slug = '';
