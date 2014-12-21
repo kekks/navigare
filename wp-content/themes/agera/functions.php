@@ -878,7 +878,7 @@ if(isset( $values['pdfbutton'] ))
     
     //$box_output .= '<option class="empty" value="">-----</option>'; // possiamo lasciare vuoto questo ma c'è un rischio se poi non scegli un colore.
     foreach($color_classes as $color):
-            $box_output .= '<option class="'.$color.'" value="'.$color.'"'.selected( $promo_color, $color ).'>'.ucfirst($color).'</option>';
+            $box_output .= '<option class="'.$color.'" value="'.$color.'"'.selected( $promo_color, $color, false ).'>'.ucfirst($color).'</option>';
     endforeach;
 
     $box_output .= '</select><br><br>';
