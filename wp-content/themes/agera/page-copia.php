@@ -80,7 +80,7 @@ $page_id = get_the_ID();
 	
 		.divbl{
 		  width:100%;
-		  height:42.5%;
+		  height:30%;
 		  background:black;
 		  z-index:8;
 		  position:absolute;
@@ -265,6 +265,7 @@ $page_id = get_the_ID();
 	      <div id="mob-title">
 	      <h5>Charter a Motor Yacht</h5> 
 	  </div>
+      <div class="divbl"></div>
       <div class="testom">
       <img src="http://my-yacht-charter.com/wp-content/uploads/2013/07/mot.png">
       <h5>Charter a Motor Yacht</h5> 
