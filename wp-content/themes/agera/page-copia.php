@@ -261,18 +261,17 @@ $page_id = get_the_ID();
 </style>
 
 <div class="wrapper">
-  <div class="motor">
-	      <a href="http://my-yacht-charter.com/charter-motor-yacht"><div id="mob-title">
+<a href="http://my-yacht-charter.com/charter-motor-yacht">  <div class="motor">
+	      <div id="mob-title">
 	      <h5>Charter a Motor Yacht</h5> 
 	  </div>
-      <div class="divbl"></div>
       <div class="testom">
       <img src="http://my-yacht-charter.com/wp-content/uploads/2013/07/mot.png">
       <h5>Charter a Motor Yacht</h5> 
       </div>
-    </a>
-  </div>
 
+  </div>
+    </a>
   <div class="sail">
     <a href="http://my-yacht-charter.com/charter-sail-yacht">
 	  <div id="mob-title">
