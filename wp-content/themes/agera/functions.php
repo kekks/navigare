@@ -866,8 +866,8 @@ if(isset( $values['pdfbutton'] ))
     $box_output .= '<label for="visualizzascheda">Nascondere scheda barca?</label> ';	
    	$box_output .= '<input type="checkbox" name="visualizzascheda" id="visualizzascheda"'.$visualizzascheda.'></br>';
    
-   	$box_output .= '<label for="visualizzasocial">Nascondere link share?</label> ';	
-   	$box_output .= '<input type="checkbox" name="visualizzasocial" id="visualizzasocial"'.$visualizzasocial.'></br>';
+     // $box_output .= '<label for="visualizzasocial">Nascondere link share?</label> ';
+  //      $box_output .= '<input type="checkbox" name="visualizzasocial" id="visualizzasocial"'.$visualizzasocial.'></br>';
    	
   	$box_output .= '<label for="promo_message">Testo Promo</label> ';
   	$box_output .= '<input type="text" name="promo_message" id="promo_message" value="'.$promo_message.'"/></br>';

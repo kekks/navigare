@@ -311,7 +311,6 @@ if(isset($post_meta['pdfbutton'][0]))
 
 					
 	<?php } ?>
-<?php if($page_data['visualizzasocial'] == 'off' && $page_data['visualizzasocial'] != 'on') { ?>
 
           <h2>Share:</h2>
 <!-- AddThis Button BEGIN -->
@@ -324,7 +323,7 @@ if(isset($post_meta['pdfbutton'][0]))
 </div>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-51a3c5dd5b9d5d7f"></script>
 <!-- AddThis Button END -->
-	<?php } ?>
+
 <div id="port-nav">
 						<!-- <span class="previous-container">
 					           <?php previous_post_link('<span class="previous-post"></span> %link', 'Previous',  TRUE, ' ','portfolio_cat') ;?>
