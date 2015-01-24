@@ -25,7 +25,8 @@ if ( force_ssl_admin() && ! is_ssl() ) {
 /**
  * Output the login page header.
  *
- * @param string   $title    Optional. WordPress Log In Page title to display in <title> element. Default 'Log In'.
+ * @param string   $title    Optional. WordPress login Page title to display in the `<title>` element.
+ *                           Default 'Log In'.
  * @param string   $message  Optional. Message to display in header. Default empty.
  * @param WP_Error $wp_error Optional. The error to pass. Default empty.
  */
@@ -146,10 +147,9 @@ function login_header( $title = 'Log In', $message = '', $wp_error = '' ) {
 
 	?>
 	</head>
-	<body class="login <?php echo esc_attr( implode( ' ', $classes ) ); ?>" style="background-image:url(http://my-yacht-charter.com/wp-content/uploads/2013/06/17.jpg);background-size: cover;">
-	<div id="login" style:"background-color:rgba(250,250,250,.6) !important;">
-		<!-- <h1><a href="<?php echo esc_url( $login_header_url ); ?>" title="<?php echo esc_attr( $login_header_title ); ?>" tabindex="-1"><?php bloginfo( 'name' ); ?></a></h1> -->
-		<img src="http://my-yacht-charter.com/wp-content/uploads/2014/12/320.png">
+	<body class="login <?php echo esc_attr( implode( ' ', $classes ) ); ?>">
+	<div id="login">
+		<h1><a href="<?php echo esc_url( $login_header_url ); ?>" title="<?php echo esc_attr( $login_header_title ); ?>" tabindex="-1"><?php bloginfo( 'name' ); ?></a></h1>
 	<?php
 
 	unset( $login_header_url, $login_header_title );
@@ -264,7 +264,8 @@ function wp_login_viewport_meta() {
 /**
  * Handles sending password retrieval email to user.
  *
- * @uses $wpdb WordPress Database object
+ * @global wpdb         $wpdb      WordPress database abstraction object.
+ * @global PasswordHash $wp_hasher Portable PHP password hashing framework.
  *
  * @return bool|WP_Error True: when finish. WP_Error on error
  */
@@ -384,15 +385,19 @@ function retrieve_password() {
 	 * @param string $title Default email title.
 	 */
 	$title = apply_filters( 'retrieve_password_title', $title );
+
 	/**
 	 * Filter the message body of the password reset mail.
 	 *
 	 * @since 2.8.0
+	 * @since 4.1.0 Added `$user_login` and `$user_data` parameters.
 	 *
-	 * @param string $message Default mail message.
-	 * @param string $key     The activation key.
+	 * @param string  $message    Default mail message.
+	 * @param string  $key        The activation key.
+	 * @param string  $user_login The username for the user.
+	 * @param WP_User $user_data  WP_User object.
 	 */
-	$message = apply_filters( 'retrieve_password_message', $message, $key );
+	$message = apply_filters( 'retrieve_password_message', $message, $key, $user_login, $user_data );
 
 	if ( $message && !wp_mail( $user_email, wp_specialchars_decode( $title ), $message ) )
 		wp_die( __('The e-mail could not be sent.') . "<br />\n" . __('Possible reason: your host may have disabled the mail() function.') );
@@ -442,7 +447,7 @@ do_action( 'login_init' );
 /**
  * Fires before a specified login form action.
  *
- * The dynamic portion of the hook name, $action, refers to the action
+ * The dynamic portion of the hook name, `$action`, refers to the action
  * that brought the visitor to the login form. Actions include 'postpass',
  * 'logout', 'lostpassword', etc.
  *
@@ -533,7 +538,7 @@ case 'retrievepassword' :
 	</p>
 	<?php
 	/**
-	 * Fires inside the lostpassword <form> tags, before the hidden fields.
+	 * Fires inside the lostpassword form tags, before the hidden fields.
 	 *
 	 * @since 2.1.0
 	 */
@@ -630,8 +635,7 @@ case 'rp' :
 	</p>
 
 	<div id="pass-strength-result" class="hide-if-no-js"><?php _e('Strength indicator'); ?></div>
-	<p class="description indicator-hint"><?php _e('Hint: The password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers, and symbols like ! " ? $ % ^ &amp; ).'); ?></p>
-
+	<p class="description indicator-hint"><?php echo wp_get_password_hint(); ?></p>
 	<br class="clear" />
 
 	<?php
