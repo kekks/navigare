@@ -301,6 +301,28 @@ if(isset($post_meta['pdfbutton'][0]))
  -->
 
 					</ul>
+          
+<div id="port-nav">
+						<!-- <span class="previous-container">
+					           <?php previous_post_link('<span class="previous-post"></span> %link', 'Previous',  TRUE, ' ','portfolio_cat') ;?>
+					         </span>
+					         <span class="next-container">
+					           <?php next_post_link('%link <span class="next-post"></span>', 'Next', TRUE, ' ','portfolio_cat') ;?>
+					         </span> -->
+					         <span class="next-container">
+					           <?php next_post_link('<span class="previous-post"></span> %link', 'Previous',  TRUE, ' ','portfolio_cat') ;?>
+					         </span>
+
+						<span class="previous-container">
+					           <?php previous_post_link('%link <span class="next-post"></span>', 'Next', TRUE, ' ','portfolio_cat') ;?>
+					         </span>
+
+
+
+
+</div>
+
+
 <?php if($post_type == 'portfolio') { ?>					
 <p><a class="mpc-button mpc-button-1" href="mailto:info@my-yacht-charter.com?Subject=Info about <?php the_title(); ?>" style="color:white !important;margin-top:10px;">Ask for availability</a></p>
 <?php } ?>
@@ -324,24 +346,7 @@ if(isset($post_meta['pdfbutton'][0]))
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-51a3c5dd5b9d5d7f"></script>
 <!-- AddThis Button END -->
 
-<div id="port-nav">
-						<!-- <span class="previous-container">
-					           <?php previous_post_link('<span class="previous-post"></span> %link', 'Previous',  TRUE, ' ','portfolio_cat') ;?>
-					         </span>
-					         <span class="next-container">
-					           <?php next_post_link('%link <span class="next-post"></span>', 'Next', TRUE, ' ','portfolio_cat') ;?>
-					         </span> -->
 
-						<span class="previous-container">
-					           <?php previous_post_link('%link <span class="next-post"></span>', 'Next', TRUE, ' ','portfolio_cat') ;?>
-					         </span>
-					         <span class="next-container">
-					           <?php next_post_link('<span class="previous-post"></span> %link', 'Previous',  TRUE, ' ','portfolio_cat') ;?>
-					         </span>
-
-
-
-</div>
 				</div>
 			</aside>
 			<div class="post-comments">

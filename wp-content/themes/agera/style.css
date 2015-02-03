@@ -525,15 +525,17 @@ aside.post-meta .next-previous a {
 }
 
 aside.post-meta .next-container {
-	position: absolute;
-	left: 20px;
+	position: relative;
+  float: left;
+/*  left: 20px;*/
 	display: inline-block;
 	bottom: 12px;
 }
 
 aside.post-meta .previous-container {
-	position: absolute;
-	right: 20px;
+	position: relative;
+  float: right;
+/*  right: 20px;*/
 	display: inline-block;
 	bottom: 12px;
 }
@@ -1837,7 +1839,7 @@ div.portfolio {
 .trick{padding: 40px;}
 
 #port-nav
-{padding-top:30px;}
+{padding-top:10px;}
 
 .btn{margin-top:70px;}
 /* 
