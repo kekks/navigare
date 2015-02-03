@@ -63,7 +63,7 @@ else
 					<div class="post-content-wrap">
 						<span class="post-thumbnail" >
 							<?php if (has_post_thumbnail()) { ?>
-								<?php the_post_thumbnail('blog_post_thumb'); ?>
+								<?php the_post_thumbnail('large'); ?>
 							<?php } elseif( isset($page_data['asset']) && $page_data['asset'] != '') {
 								$asset = $page_data['asset'];
 								$search = preg_match('/.(jpg|JPG|gif|GIF|png)/', $asset);
@@ -93,7 +93,7 @@ else
 								}
 
 								if($type == 'image') { ?>
-									<img src="<?php echo $asset ?>" class="post-asset"/>
+
 								<?php } elseif ($type == 'vimeo-video') { ?>
 									<div class="iframe-wrap">
 										<iframe src="<?php echo $asset ?>?color=F9625B" width="100%" height="100%"></iframe>

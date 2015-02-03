@@ -30,7 +30,6 @@ else
 	  opacity:0.9;
 	}
 </style>
-
 <div id="content" role="main">
 	<div class="page-container">
 		<div class="page-content infopage">
