@@ -253,7 +253,7 @@ if(isset($post_meta['pdfbutton'][0]))
 						<?php } ?>
 						
 						<?php if($page_data['guestcabins'] != '') { ?>
-							<li><em>Guest cabin:</em> <?php echo $page_data['guestcabins']; ?></li>
+							<li><em>Guest cabins:</em> <?php echo $page_data['guestcabins']; ?></li>
 						<?php } ?>
 						
 						<?php if($page_data['crew'] != '') { ?>
