@@ -203,7 +203,7 @@ if(isset($post_meta['pdfbutton'][0]))
 				} ?>
 			<?php } elseif (has_post_thumbnail()) {  ?>
 				<div class="post-image">
-					<?php the_post_thumbnail(); ?>	
+					<?php the_post_thumbnail("portfolio-inpage"); ?>	
 					
 					<?php if($page_data['promo_message'] != ""):?>
 						<div class="corner-ribbon top-right <?php echo $page_data['promo_color'];?>"><?php echo $page_data['promo_message'];?></div>

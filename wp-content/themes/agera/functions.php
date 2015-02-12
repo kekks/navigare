@@ -37,6 +37,7 @@ function agera_setup(){
 		add_theme_support( 'automatic-feed-links');
 		add_theme_support('post-thumbnails');
 		add_image_size('portfolio-full', 500, 330, true);
+    add_image_size('portfolio-inpage', 1920, 500, false);
 		add_image_size('blog_post_thumb', 410, 1000, false);
 	}
 }
